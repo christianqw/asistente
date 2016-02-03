@@ -10,8 +10,9 @@ define (
 
         var Paso3Controller = Marionette.Controller.extend({
 
-            initialize: function () {
-            },
+          initialize: function (options) {
+              this.router = options.router;
+          },
 
             show: function () {
                 this.paso3View = new Paso3View();

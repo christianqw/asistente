@@ -10,8 +10,10 @@ define (
 
         var ComenzandoController = Marionette.Controller.extend({
 
-            initialize: function () {
-            },
+          initialize: function (options) {
+              this.router = options.router;
+              //si se agregan parametros se setean acá;
+          },
 
             show: function () {
                 this.comenzandoView = new ComenzandoView();
@@ -21,7 +23,7 @@ define (
             },
 
             showSiguiente: function () {
-                this.router.navigate('paso1', {trigger: true});
+              this.router.navigate('paso1', {trigger: true});
             }
 
         });

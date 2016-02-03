@@ -12,7 +12,6 @@ body{
   width: 75%;
   margin: auto;
   border-radius: 6px;
-  font: bold 24px/1 'PT Sans', sans-serif;
   color: #6b6b6b;
 }
 
@@ -21,10 +20,30 @@ body{
   border-right: 1px solid #ddd;
 }
 #my-nav{
-      margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 .nav-step-assistant{
   border: none;
+}
+.legend-form-assistant{
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.form-group{
+  margin-bottom: 4px;
+}
+label.form-control-label{
+    padding-right: 0px;
+}
+
+/*No usados.....*/
+form div .label-input-assistant{
+  padding-top: 0;
+  margin-bottom: 0;
+  text-align: left;
+  padding-right: 0px;
+  padding-left: 15px;
 }
 
 /*Conteiner btns*/

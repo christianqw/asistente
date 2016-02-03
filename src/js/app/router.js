@@ -26,18 +26,15 @@ function ($, Backbone, ComenzandoController, Paso1Controller, Paso2Controller, P
             */
             initialize: function () {
                 Backbone.history.start();
-
             },
 
             showComenzandoAsistente : function(){
-              console.log('show comenzando asistente');
               var comenzandoController = new ComenzandoController({ router: this});
               comenzandoController.show();
             },
 
             showPaso1: function () {
-                console.log('show paso 1');
-                var paso1Controller = new Paso1Controller({ router: this, descripcion: "Este es el paso 1 que lo creo desde el router" });
+                var paso1Controller = new Paso1Controller({ router: this});
                 paso1Controller.show();
             },
 
