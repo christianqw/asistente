@@ -1,6 +1,50 @@
-<h2 class="paso2">Paso 2</h2>
-<p class="paso2">
-    TEXTO TEXTO TEXTO
-</p>
-<button type="button" id="anterior">Anterior</button>
-<button type="button" id="siguiente">Siguiente</button>
+<div class="body-assistant">
+  <!--Cada paso modifica el contenedor por completo-->
+  <div id="contentAssistantRegion" class="panel panel-default conteiner">
+      <!--DONDE ESTOY PARADO-->
+      <div id="headerAssistantRegion" class="panel-heading">
+        <h2 class="panel-title">Definiendo el Mundo [Asistente Logic World]</h2>
+      </div>
+      <!--2 columnas-->
+      <div class="panel-body row">
+        <!--COL IZQ - NAV. PASOS RESCORRIDOS - PASOS FALTANTES-->
+          <div id="navigateAssistantRegion" class="col-sm-2">
+            <h3 class="list-title">Pasos</h3>
+            <ul class="list-group">
+              <li class="list-group-item nav-step-assistant">Bienvenidos</li>
+              <li class="list-group-item nav-step-assistant"><span class="badge"> ← </span>Paso 1</li>
+              <li class="list-group-item nav-step-assistant">Paso 2</li>
+              <li class="list-group-item nav-step-assistant">Paso 3</li>
+              <li class="list-group-item nav-step-assistant">Paso 4</li>
+            </ul>
+          </div>
+      <!--COL DER - FORMULARIO. -->
+          <div id="formAssistantRegion" class="col-sm-10 ">
+            <form class="form-horizontal" role="form">
+              <fieldset>
+              <!-- Form Name -->
+              <legend class="legend-form-assistant">Zonas</legend>
+              <!-- Text input-->
+              <div class="form-group row">
+                <label class="col-md-2 form-control-label" for="inputNameModel">Nombre</label>
+                <div class="col-md-4">
+                  <input id="inputNameModel" name="inputNameModel" type="text" placeholder="ej:Granja" class="form-control input-md" required="">
+                  <span class="help-block">Nombre del modelo</span>
+                </div>
+              </div>
+
+              </form>
+
+              <!-- BOTONES MOVIMIENTOS -->
+              <div class="conteiner-actions btn-group" role="group">
+                  <button id="anterior" type="button" class="btn btn-default btn-action"><span class="glyphicon glyphicon-chevron-left" aria-hidden="false"> Atrás</button>
+                  <button id="siguiente" type="button" class="btn btn-default btn-action">Siguiente <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+                  <button id="finalizar" type="button" class="btn btn-default disabled">Finalizar</button>
+                  <button id="cancelar" type="button" class="btn btn-default" href="#">Cancelar</button>
+                  <button id="help" type="button" class="btn btn-default ">Ayuda</button>
+              </div>
+
+          </div>
+    </div>
+  </div>
+</div>

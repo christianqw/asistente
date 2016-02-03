@@ -21,7 +21,7 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
         ui: {
             //'paso2Class': '.paso1'
         },
-        // 
+        //
         // initialize: function (options) {
         //   //  this.descripcion = options.descripcion;
         // },
@@ -48,6 +48,7 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
         },
 
         siguiente: function () {
+
             this.trigger('paso2.siguiente');
         },
 

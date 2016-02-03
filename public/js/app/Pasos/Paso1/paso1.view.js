@@ -15,15 +15,38 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
 
         events: {
             'click #siguiente' : 'siguiente',
-            'click #atras' : "atras"
+            'click #anterior' : "anterior"
         },
 
         siguiente: function () {
-            this.trigger('paso1.siguiente');
+          console.log("antes del if");
+          //  var img = $("#btnFondoModel");
+          //  console.log(img);
+          var oFile = document.getElementById("btnFondoModel").files[0];
+          console.log(img);
+          var reader = new FileReader();
+          $('#blah').attr('src', e.target.result);
+
+          reader.readAsDataURL(oFile);
+          this.trigger('paso1.siguiente');
         },
 
-        atras : function (){
-          this.trigger('paso1.atras');
+      /*  readURL: function(){
+          var img = $("#btnFondoModel");
+          if (img.files && img.files[0]) {
+              var reader = new FileReader();
+              $('#blah').attr('src', e.target.result);
+              reader.readAsDataURL(img.files[0]);
+          }
+        },
+*/
+        anterior : function (){
+          this.trigger('paso1.anterior');
+        },
+
+        mensaje : function(e){
+          console.log("dentro de mensaje");
+          console.log(e);
         }
     });
 

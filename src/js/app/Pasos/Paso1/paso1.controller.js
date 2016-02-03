@@ -19,11 +19,12 @@ define (
                 App.contentRegion.show(this.paso1View);
 
                 this.listenTo(this.paso1View, 'paso1.siguiente', this.showSiguiente);
-                this.listenTo(this.paso1View, 'paso1.atras', this.showAnterior);
+                this.listenTo(this.paso1View, 'paso1.anterior', this.showAnterior);
             },
 
             showSiguiente: function () {
-                this.router.navigate('paso2', {trigger: true});
+                alert("apreto siguiente...");
+                //this.router.navigate('paso2', {trigger: true});
             },
 
             showAnterior: function () {
