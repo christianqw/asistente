@@ -1,0 +1,43 @@
+body{
+  background-color: #edf0f4;
+  margin: 0;
+  padding: 0;
+}
+
+/*Content Asistant*/
+#contentAssistantRegion{
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 1px #ccc;
+  width: 75%;
+  margin: auto;
+  border-radius: 6px;
+  font: bold 24px/1 'PT Sans', sans-serif;
+  color: #6b6b6b;
+}
+
+/*Nav Asistant*/
+#navigationAssistantRegion{
+  border-right: 1px solid #ddd;
+}
+#my-nav{
+      margin-bottom: 0px;
+}
+.nav-step-assistant{
+  border: none;
+}
+
+/*Conteiner btns*/
+.formAssistantRegion{
+
+}
+.conteiner-actions{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+}
+.conteiner-actions button{
+  margin-right: 5px;
+}

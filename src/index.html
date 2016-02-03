@@ -17,12 +17,27 @@
     </head>
     <body>
         <div id="headerRegion" class="">
-            <h2>Welcome to the world of logic</h2>
+          <!-- start:Navbar -->
+          <nav id="my-nav" class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                  <img id="img_logo_app" src="img/assets/logoApp.png" class="image" />
+                </a>
+              </div>
+            </div>
+          </nav>
+          <!-- end:Navbar -->
         </div>
         <div id="contentRegion" class="">
             <h3>Mundos</h3>
             <button type="button" name="button">Mundo 1</button>
             <a href="#paso1">Crear nuevo mundo</a>
+            <h3>Crear Nuevo Mundo</h3>
+            <a href="#comenzando">
+              <button type="button" name="button">Ir al Asistente</button>
+            </a>
+
         </div>
         <section class="modal fade" role="modal" id="modalRegion"></section>
         <script type="text/javascript" data-main="js/main" src="vendor/requirejs/require.js"></script>
