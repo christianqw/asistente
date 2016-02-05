@@ -15,7 +15,8 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
 
         events: {
             'click #siguiente' : 'siguiente',
-            'click #anterior' : "anterior"
+            'click #anterior' : "anterior",
+            "click #help" : "functionColor"
         },
 
         siguiente: function () {
@@ -47,6 +48,10 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
         mensaje : function(e){
           console.log("dentro de mensaje");
           console.log(e);
+        },
+
+        functionColor : function(){
+          this.trigger("paso1.color");
         }
     });
 

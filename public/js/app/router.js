@@ -5,10 +5,11 @@ define(
     './Pasos/Comenzando/comenzando.controller',
     './Pasos/Paso1/paso1.controller',
     './Pasos/Paso2/paso2.controller',
-    './Pasos/Paso3/paso3.controller'
+    './Pasos/Paso3/paso3.controller',
+    './Pasos/Color/color.controller'
 
 ],
-function ($, Backbone, ComenzandoController, Paso1Controller, Paso2Controller, Paso3Controller) {
+function ($, Backbone, ComenzandoController, Paso1Controller, Paso2Controller, Paso3Controller, ColorController) {
         'use strict';
 
         var Router = Backbone.Router.extend({
@@ -17,7 +18,8 @@ function ($, Backbone, ComenzandoController, Paso1Controller, Paso2Controller, P
                 'paso1': 'showPaso1',
                 'paso2': 'showPaso2',
                 'paso3': 'showPaso3',
-                'comenzando' : 'showComenzandoAsistente'
+                'comenzando' : 'showComenzandoAsistente',
+                "color" : "showColor"
             },
 
             /**
@@ -49,7 +51,14 @@ function ($, Backbone, ComenzandoController, Paso1Controller, Paso2Controller, P
 
                 var paso3Controller = new Paso3Controller({ router: this});
                 paso3Controller.show();
+            },
+
+            showColor:function (){
+              console.log("Dentro de colores");
+              var colorController = new ColorController({ router: this});
+              colorController.show();
             }
+
 
         });
 

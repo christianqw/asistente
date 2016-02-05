@@ -20,6 +20,7 @@ define (
 
                 this.listenTo(this.paso1View, 'paso1.siguiente', this.showSiguiente);
                 this.listenTo(this.paso1View, 'paso1.anterior', this.showAnterior);
+                this.listenTo(this.paso1View, "paso1.color", this.showColor);
             },
 
             showSiguiente: function () {
@@ -29,6 +30,10 @@ define (
 
             showAnterior: function () {
                 this.router.navigate('comenzando', {trigger: true});
+            },
+
+            showColor : function (){
+              this.router.navigate('color', {trigger: true});          
             }
 
         });
