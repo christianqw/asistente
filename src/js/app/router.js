@@ -2,6 +2,7 @@ define(
 [
     'jquery',
     'backbone',
+    './data.model',
     './Pasos/Comenzando/comenzando.controller',
     './Pasos/Paso1/paso1.controller',
     './Pasos/Paso2/paso2.controller',
@@ -9,17 +10,22 @@ define(
     './Pasos/Color/color.controller'
 
 ],
-function ($, Backbone, ComenzandoController, Paso1Controller, Paso2Controller, Paso3Controller, ColorController) {
+function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Controller, Paso3Controller, ColorController) {
         'use strict';
 
+        var formModel = new FormModel ();
+
         var Router = Backbone.Router.extend({
+
+            //dataLocal : formModel,
 
             routes: {
                 'paso1': 'showPaso1',
                 'paso2': 'showPaso2',
                 'paso3': 'showPaso3',
                 'comenzando' : 'showComenzandoAsistente',
-                "color" : "showColor"
+                "color" : "showColor",
+                'form' : "showForm"
             },
 
             /**
@@ -31,19 +37,20 @@ function ($, Backbone, ComenzandoController, Paso1Controller, Paso2Controller, P
             },
 
             showComenzandoAsistente : function(){
-              var comenzandoController = new ComenzandoController({ router: this});
+              var comenzandoController = new ComenzandoController({ router: this, fModel: formModel});
               comenzandoController.show();
             },
 
             showPaso1: function () {
-                var paso1Controller = new Paso1Controller({ router: this});
+                var paso1Controller = new Paso1Controller({ router: this, fModel: formModel});
                 paso1Controller.show();
+                console.log("Paso1  model:" + JSON.stringify(formModel));
             },
 
             showPaso2: function () {
-                console.log('estamos en el paso 2');
-                var paso2Controller = new Paso2Controller({ router: this});
+                var paso2Controller = new Paso2Controller({ router: this, fModel: formModel});
                 paso2Controller.show();
+                console.log("Paso2  model:" + JSON.stringify(formModel));
             },
 
             showPaso3: function () {

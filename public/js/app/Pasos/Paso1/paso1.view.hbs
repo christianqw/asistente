@@ -20,7 +20,7 @@
           </div>
       <!--COL DER - FORMULARIO. -->
           <div id="formAssistantRegion" class="col-sm-10 ">
-            <form class="form-horizontal" data-toggle="validator" role="form">
+            <form id="form-paso1" class="form-horizontal" data-toggle="validator" role="form">
               <fieldset>
               <!-- Form Name -->
               <legend class="legend-form-assistant">Modelo</legend>
@@ -28,7 +28,7 @@
               <div class="form-group has-feedback">
                 <label class="col-md-2 form-control-label control-label" for="inputNameModel">Nombre</label>
                 <div class="col-md-4">
-                  <input id="inputNameModel" name="inputNameModel" type="text" pattern="^[_A-z0-9]{1,}$" maxlength="15" placeholder="ej:Granja" class="form-control input-md" required>
+                  <input id="inputNameModel" name="inputNameModel" type="text" maxlength="15" placeholder="ej:Granja" class="form-control input-md" required />
                   <span class="help-block">Nombre del modelo</span>
                 </div>
               </div>
@@ -37,7 +37,7 @@
               <div class="form-group" >
                 <label class="col-md-2 form-control-label" for="btnIconModel">Imagen</label>
                 <div class="col-md-4">
-                  <input id="btnIconModel" name="btnIconModel" class="input-file" type="file">
+                  <input id="btnIconModel" name="filePaso1" class="input-file" type="file">
                 </div>
               </div>
               </fieldset>
@@ -49,11 +49,8 @@
               <div class="form-group">
                 <label class="col-md-2 form-control-label" for="btnFondoModel">Fondo</label>
                 <div class="col-md-4">
-                  <input id="btnFondoModel" name="btnFondoModel" class="input-file" type="file">
+                  <input id="btnFondoModel" name="filePaso1" class="input-file" type="file">
                   <span class="help-block">Fondo del Modelo</span>
-                <div class="col-md-6">
-                  <img id="blah" src="#" alt="your image" />
-                </div>
               </div>
 
               </div>
@@ -61,7 +58,7 @@
               <div class="form-group">
                 <label class="col-md-2 form-control-label" for="btnMascaraModel">Mascara</label>
                 <div class="col-md-4">
-                  <input id="btnMascaraModel" name="btnMascaraModel" class="input-file" type="file">
+                  <input id="btnMascaraModel" name="filePaso1" class="input-file" type="file">
                   <span class="help-block">Mascara del Modelo</span>
                 </div>
               </div>

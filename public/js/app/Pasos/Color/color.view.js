@@ -11,14 +11,16 @@ define(
 function ($, Backbone, Marionette, _, JQUI, JST, ModelColor) {
     'use strict';
 
-    var ColorView = Marionette.ItemView.extend({
-        template: 'color.template.hbs',
+    var CollectionView = Marionette.ItemView.extend({
+        
+
+        className: 'color-item',
 
         events: {
         },
 
     });
 
-    return ColorView;
+    return CollectionView;
 
 });

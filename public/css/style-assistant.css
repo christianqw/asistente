@@ -1,3 +1,14 @@
+/*Colores- modelos y cllections*/
+.color-item span{
+  float: left;
+  margin-right: 12px;
+  height: 43px;
+  width: 43px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
 body{
   background-color: #edf0f4;
   margin: 0;

@@ -12,7 +12,7 @@ define (
 
           initialize: function (options) {
               this.router = options.router;
-              //si se agregan parametros se setean acá;
+              this.formModel = options.fModel;
           },
 
             show: function () {

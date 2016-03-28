@@ -12,10 +12,11 @@ define (
 
           initialize: function (options) {
               this.router = options.router;
+              this.formModel = options.fModel;
           },
 
             show: function () {
-                this.paso1View = new Paso1View();
+                this.paso1View = new Paso1View({'fModel' : this.formModel});
                 App.contentRegion.show(this.paso1View);
 
                 this.listenTo(this.paso1View, 'paso1.siguiente', this.showSiguiente);
@@ -33,7 +34,7 @@ define (
             },
 
             showColor : function (){
-              this.router.navigate('color', {trigger: true});          
+              this.router.navigate('color', {trigger: true});
             }
 
         });

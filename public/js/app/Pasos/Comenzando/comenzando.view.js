@@ -5,7 +5,7 @@ define(
     'marionette',
     'underscore',
     'jquery-ui',
-    'templateregistry'
+    'templateregistry',
 ],
 function ($, Backbone, Marionette, _, JQUI, JST) {
     'use strict';

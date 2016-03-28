@@ -11,7 +11,7 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
     'use strict';
 
     var ColorModel = Backbone.Model.extend({
-      urlRoot: '/colors',
+      urlRoot: '/color',
 
       validate: function(attrs, options) {
         console.log(" Mensaje --> validate in model ");
