@@ -69,6 +69,15 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<!--DONDE ESTOY PARADO-->\n<div id=\"headerAssistantRegion\" class=\"panel-heading\">\n  <h2 class=\"panel-title\">Asistente - Paso 3</h2>\n</div>\n<!--2 columnas-->\n<div class=\"panel-body row\">\n  <!--COL IZQ - NAV. PASOS RESCORRIDOS - PASOS FALTANTES-->\n    <div id=\"navigateAssistantRegion\" class=\"col-sm-2\">\n      <h3 class=\"list-title\">Pasos</h3>\n      <ul class=\"list-group\">\n        <li class=\"list-group-item nav-step-assistant\">paso 1</li>\n        <li class=\"list-group-item nav-step-assistant\"> paso 2</li>\n        <li class=\"list-group-item nav-step-assistant\"><span class=\"badge\"> ← </span>paso 3</li>\n        <li class=\"list-group-item nav-step-assistant\">lita 1</li>\n        <li class=\"list-group-item nav-step-assistant\">lita 1</li>\n      </ul>\n    </div>\n<!--COL DER - FORMULARIO. -->\n    <div id=\"formAssistantRegion\" class=\"col-sm-10 \">\n        <form class=\"\"  method=\"post\">\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n        </form>\n        <!-- BOTONES MOVIMIENTOS -->\n        <div class=\"conteiner-actions btn-group\" role=\"group\">\n            <button type=\"button\" class=\"btn btn-default btn-action\"  href=\"#paso2\"><span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"false\"> Atrás</button>\n            <button type=\"button\" class=\"btn btn-default btn-action\" href=\"#paso4\">Siguiente <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span></button>\n            <button type=\"button\" class=\"btn btn-default disabled\">Finalizar</button>\n            <button type=\"button\" class=\"btn btn-default\" href=\"#\">Cancelar</button>\n            <button type=\"button\" class=\"btn btn-default \">Ayuda</button>\n        </div>\n\n    </div>\n</div>\n";
   });
 
+this["JST"]["app.template.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"asd\" >\r\n  <h1>Mi nombre es pepe</h1>\r\n  <h2>Soy un tostoo</h2> \r\n</div>\r\n";
+  });
+
 return this["JST"];
 
 });

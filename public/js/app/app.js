@@ -45,6 +45,8 @@ function (jquery, _, Backbone, Marionette, Handlebars, JST, Router) {
 
 
     Application.on('initialize:after', function (options) {
+
+        console.log("REgiones");
         var ModalRegion = Backbone.Marionette.Region.extend({
             el: '#modalRegion',
             onShow: function (view) {
@@ -64,6 +66,7 @@ function (jquery, _, Backbone, Marionette, Handlebars, JST, Router) {
 
 
     Application.on('initialize:after', function (options) {
+        console.log("Antes de hacer el NEW al Router");
         var router = new Router();
 
     });

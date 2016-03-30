@@ -7,24 +7,24 @@ define(
     './Pasos/Paso1/paso1.controller',
     './Pasos/Paso2/paso2.controller',
     './Pasos/Paso3/paso3.controller',
-    './Pasos/Color/color.controller'
+    './modelos/appController.controller'
 
 ],
-function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Controller, Paso3Controller, ColorController) {
+function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Controller, Paso3Controller, AppController) {
         'use strict';
 
         var formModel = new FormModel ();
 
         var Router = Backbone.Router.extend({
 
-            //dataLocal : formModel,
+            dataLocal : formModel,
 
             routes: {
+                'modelos/:nameModel' : 'showModelo',
                 'paso1': 'showPaso1',
                 'paso2': 'showPaso2',
                 'paso3': 'showPaso3',
                 'comenzando' : 'showComenzandoAsistente',
-                "color" : "showColor",
                 'form' : "showForm"
             },
 
@@ -33,10 +33,19 @@ function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Co
             * @return {[type]} [description]
             */
             initialize: function () {
-                Backbone.history.start();
+              console.log("version de mensaje numero 2");
+              Backbone.history.start();
+            },
+
+            showModelo : function (nameModel){
+              console.log("dentro de <show modelo>" + nameModel);
+              var appController = new AppController({ router: this, fModel: formModel});
+              //acá póseo el nombre del modelo por el parametro.
+              appController.show();
             },
 
             showComenzandoAsistente : function(){
+
               var comenzandoController = new ComenzandoController({ router: this, fModel: formModel});
               comenzandoController.show();
             },
@@ -58,12 +67,6 @@ function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Co
 
                 var paso3Controller = new Paso3Controller({ router: this});
                 paso3Controller.show();
-            },
-
-            showColor:function (){
-              console.log("Dentro de colores");
-              var colorController = new ColorController({ router: this});
-              colorController.show();
             }
 
 
