@@ -7,10 +7,11 @@ define(
     './Pasos/Paso1/paso1.controller',
     './Pasos/Paso2/paso2.controller',
     './Pasos/Paso3/paso3.controller',
-    './modelos/appController.controller'
+    './modelos/appController.controller',
+    './backbone.components/sentencias/sentencia.controller'
 
 ],
-function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Controller, Paso3Controller, AppController) {
+function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Controller, Paso3Controller, AppController, SentenciaController) {
         'use strict';
 
         var formModel = new FormModel ();
@@ -20,7 +21,8 @@ function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Co
             dataLocal : formModel,
 
             routes: {
-                'modelos/:nameModel' : 'showModelo',
+              //'modelos/:nameModel' : 'showModelo', no funca
+                ':nameModel' : 'showModelo',
                 'paso1': 'showPaso1',
                 'paso2': 'showPaso2',
                 'paso3': 'showPaso3',
@@ -33,15 +35,19 @@ function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Co
             * @return {[type]} [description]
             */
             initialize: function () {
-              console.log("version de mensaje numero 2");
+              console.log("version de mensaje numero 9");
               Backbone.history.start();
             },
 
             showModelo : function (nameModel){
               console.log("dentro de <show modelo>" + nameModel);
+
               var appController = new AppController({ router: this, fModel: formModel});
               //acá póseo el nombre del modelo por el parametro.
               appController.show();
+              var sentenciaController = new SentenciaController();
+              console.log("sentencia controller declarado");
+              sentenciaController.show();
             },
 
             showComenzandoAsistente : function(){
