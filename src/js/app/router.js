@@ -46,7 +46,6 @@ function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Co
               //acá póseo el nombre del modelo por el parametro.
               appController.show();
               var sentenciaController = new SentenciaController();
-              console.log("sentencia controller declarado");
               sentenciaController.show();
             },
 

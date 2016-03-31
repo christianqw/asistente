@@ -72,10 +72,31 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 this["JST"]["sentencia.template.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  return "<!-- Begin: Sentencia Template-->\r\n<button class=\"btn btn-default btn-destroy-trash\" type=\"button\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></button>\r\n    <div class=\"input-group\">\r\n      <input type=\"text\" id=\"<%= nombre %>\" name=\"<%= nombre %>\" class=\"input_sentencia form-control\" placeholder=\"Click and type...\" value=\"<%= valor %>\">\r\n        <span class=\"input-group-btn\">\r\n         <button class=\"btn btn-default my-btn-resultado\" type=\"button\">\r\n           <i class=\"my-icon-resultado  <%= estado %> \"></i>\r\n         </button>\r\n        </span>\r\n    </div><!-- /input-group -->\r\n<label class=\"label-mensaje\"><%= mensaje %></label>\r\n<!-- End: Sentencia Template-->\r\n";
+  buffer += "<!-- Begin: Sentencia Template-->\r\n<button class=\"btn btn-default btn-destroy-trash\" type=\"button\"><span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span></button>\r\n    <div class=\"input-group\">\r\n      <input type=\"text\" id=\"";
+  if (stack1 = helpers.nombre) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.nombre); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" name=\"";
+  if (stack1 = helpers.nombre) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.nombre); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"input_sentencia form-control\" placeholder=\"Click and type...\" value=\"";
+  if (stack1 = helpers.valor) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.valor); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n        <span class=\"input-group-btn\">\r\n         <button class=\"btn btn-default my-btn-resultado\" type=\"button\">\r\n           <i class=\"my-icon-resultado  ";
+  if (stack1 = helpers.estado) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.estado); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\"></i>\r\n         </button>\r\n        </span>\r\n    </div><!-- /input-group -->\r\n<label class=\"label-mensaje\">";
+  if (stack1 = helpers.mensaje) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.mensaje); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</label>\r\n<!-- End: Sentencia Template-->\r\n";
+  return buffer;
   });
 
 this["JST"]["app.template.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {

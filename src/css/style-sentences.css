@@ -1,0 +1,85 @@
+/*label Sentencia*/
+
+#lista_sentencias li .label-mensaje {
+	display: none;
+	position: absolute;
+	z-index: 3;
+	margin-bottom: 0px;
+	border-radius: 4px;
+	background-color: rgba(225, 225, 220, 0.85);
+	bottom: -3px;
+	right: -3px;
+	border: 1px solid rgb(170, 170, 170);
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(175, 175, 175, 0.6);
+}
+/* se ve cuando se papa sobre el div, pero se ve un punto si no tiene texto*/
+#lista_sentencias li div:hover + .label-mensaje {
+	display: block;
+}
+/*Icons*/
+ .my-btn-resultado{
+ 	padding-right: 7px;
+   padding-left: 7px;
+  padding-top: 4px;
+   padding-bottom: 4px;
+ 	height: 34px;
+ }
+
+.my-icon-resultado {
+ display: inline-block;
+ width: 24px;
+ height: 24px;
+ background-repeat: no-repeat;
+}
+
+.my-icon-true{
+ background-image: url(../images/my-icons/icon-true.png);
+}
+
+.my-icon-false{
+ background-image: url(../images/my-icons/icon-false.png);
+}
+
+.my-icon-none{
+ background-image: url(../images/my-icons/icon-none.png);
+}
+
+.my-icon-alert{
+ background-image: url(../images/my-icons/icon-alert.png);
+}
+
+.my-icon-editing{
+ background-image: url(../images/my-icons/icon-editing.png);
+}
+
+/*Sentencias */
+#btn-group-char-2{
+	margin-top: 5px;
+}
+
+#lista_sentencias{
+	padding-left: 0px;
+	list-style-type: none;
+}
+
+.item_sentencia{
+	margin-bottom: 2px;
+}
+
+.item_sentencia .input-group{
+	margin-right: 20px;
+}
+
+.item_sentencia .btn-destroy-trash{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+}
+
+#lista_sentencias li .btn-destroy-trash {
+	float: right;
+  width: 34px;
+  height: 34px;
+
+}
