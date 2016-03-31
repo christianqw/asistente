@@ -17,6 +17,7 @@ define (
           },
 
           show: function () {
+              console.log("dentro de controler sentencia show");
               this.sentenciaView = new SentenciaView({model:this.sentenciaModel});
               App.sentencesRegion.show(this.sentenciaView);
 

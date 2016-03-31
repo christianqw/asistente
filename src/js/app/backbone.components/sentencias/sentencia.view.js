@@ -39,7 +39,8 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
       },
 
       edit: function(event){
-        this.event_aggregator.trigger("event_formulario:edit_Focus", this);
+        App.event_aggregator.trigger('some:event');
+        //this.event_aggregator.trigger("event_formulario:edit_Focus", this);
       },
 
 			delete : function(){

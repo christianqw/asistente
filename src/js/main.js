@@ -13,6 +13,7 @@ require.config({
         'templateregistry' : 'app/templates',
         'bootstrap': '../vendor/bootstrap/dist/js/bootstrap',
         'jquery-ui': '../vendor/jquery-ui/jquery-ui',
+        'localStorage' : '../vendor/Backbone.localStorage/backbone.localStorage',
     },
 
     shim: {
