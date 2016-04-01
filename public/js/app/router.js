@@ -35,14 +35,14 @@ function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Co
             * @return {[type]} [description]
             */
             initialize: function () {
-              console.log("version de mensaje numero 12 ");
-              App.event_aggregator.trigger('some:event');
+              console.log("version de mensaje numero 14 ");
+              //App.event_aggregator.trigger('some:event');
               Backbone.history.start();
             },
 
             showModelo : function (nameModel){
               console.log("dentro de <show modelo>" + nameModel);
-              App.event_aggregator.trigger('some:event2', 2);
+              //App.event_aggregator.trigger('some:event2', 2);
               var appController = new AppController({ router: this, fModel: formModel});
               //acá póseo el nombre del modelo por el parametro.
               appController.show();

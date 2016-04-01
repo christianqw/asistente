@@ -35,12 +35,11 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
       },
 
       onShow: function(){
-          this.$input = this.$('.input_sentencia');
+        this.$input = this.$('.input_sentencia');
       },
 
       edit: function(event){
-        App.event_aggregator.trigger('some:event');
-        //this.event_aggregator.trigger("event_formulario:edit_Focus", this);
+        App.event_aggregator.trigger("event_formulario:edit_Focus", this);
       },
 
 			delete : function(){

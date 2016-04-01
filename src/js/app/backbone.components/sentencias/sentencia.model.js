@@ -8,7 +8,7 @@ define(
     'jquery-ui',
     'templateregistry'
 ],
-function ($, Backbone, LocalStoragem, Marionette, _, JQUI, JST) {
+function ($, Backbone, LocalStorage, Marionette, _, JQUI, JST) {
     'use strict';
 
     // Sentencia Model

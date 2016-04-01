@@ -4,23 +4,34 @@ define (
         'underscore',
         'marionette',
         './sentencia.view',
-        './sentencia.model'
+        './sentencia.model',
+        './lista-sentencia.collection',
+        './lista-sentencia.view'
     ],
-    function ($, _, Marionette, SentenciaView, SentenciaModel) {
+    function ($, _, Marionette, SentenciaView, SentenciaModel, SentenciaCollection, SentenciaCollectionView) {
         'use strict';
 
         var SentenciaController = Marionette.Controller.extend({
 
           initialize: function (options) {
               //this.sentenciaModel = options.sModel;
-              this.sentenciaModel = new SentenciaModel({});
+              this.sentenciaCollection = new SentenciaCollection({});
+              this.cargar();
+              console.log('despues del cargar: ' + JSON.stringify(this.sentenciaCollection.toJSON()));
           },
 
           show: function () {
               console.log("dentro de controler sentencia show");
-              this.sentenciaView = new SentenciaView({model:this.sentenciaModel});
-              App.sentencesRegion.show(this.sentenciaView);
+              this.lista_sentenciaView = new SentenciaCollectionView({collection:this.sentenciaCollection});
+              console.log("despues del generar la vista de collection");
+              App.sentencesRegion.show(this.lista_sentenciaView);
+          },
 
+          cargar: function (){
+            var formDataInic = {};
+            this.sentenciaCollection.add(new SentenciaModel(formDataInic));
+            formDataInic = {nombre:"form_02"};
+            this.sentenciaCollection.add(formDataInic);
           }
 
         });
