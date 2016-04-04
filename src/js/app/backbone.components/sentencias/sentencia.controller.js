@@ -24,6 +24,7 @@ define (
               console.log("dentro de controler sentencia show");
               this.lista_sentenciaView = new SentenciaCollectionView({collection:this.sentenciaCollection});
               console.log("despues del generar la vista de collection");
+              console.log("sentencia Region" + App.sentencesRegion);
               App.sentencesRegion.show(this.lista_sentenciaView);
           },
 

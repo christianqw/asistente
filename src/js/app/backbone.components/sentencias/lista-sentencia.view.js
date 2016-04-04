@@ -16,7 +16,7 @@ function ($, Backbone, Marionette, _, JQUI, JST, SentenciaView) {
       // Sentencia Item View
       // --------------
 
-      childView : SentenciaView,
+      itemView : SentenciaView,
 
       //insertamos los elementos en:
       //
@@ -31,6 +31,7 @@ function ($, Backbone, Marionette, _, JQUI, JST, SentenciaView) {
 				},
 
       initialize: function () {
+        console.log("dentro del inic de la colletionView");
         _.bindAll(this, "changeFocusSentencia");
 
         App.event_aggregator.bind("event_formulario:edit_Focus", this.changeFocusSentencia);
@@ -41,7 +42,7 @@ function ($, Backbone, Marionette, _, JQUI, JST, SentenciaView) {
       },
 
       onShow: function(){
-        this.$input = this.$('.input_sentencia');
+      //  this.$input = this.$('.input_sentencia');
       },
 
   /*    clearAllInputs : function(){
