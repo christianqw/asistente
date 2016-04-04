@@ -16,6 +16,7 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
         events: {
             //'click #siguiente': 'siguiente'
         },
+        
 
         initialize:function(){
 

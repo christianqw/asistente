@@ -35,7 +35,7 @@ function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Co
             * @return {[type]} [description]
             */
             initialize: function () {
-              console.log("version de mensaje numero 16");
+              console.log("version de mensaje numero 18");
               //App.event_aggregator.trigger('some:event');
               Backbone.history.start();
             },

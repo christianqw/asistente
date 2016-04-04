@@ -35,10 +35,11 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
       },
 
       onShow: function(){
-        this.$input = this.$('.input_sentencia');
+      //  this.$input = this.$('.input_sentencia');
       },
 
       edit: function(event){
+        console.log("dentro de edit");
         App.event_aggregator.trigger("event_formulario:edit_Focus", this);
       },
 
@@ -56,17 +57,21 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
 			},
 
       updateOnFocusOut: function(){
-        this.var_char_pos = this.$input.prop('selectionStart');
-        var value = this.$input.val();
+        var $input = this.$('input');
+        this.var_char_pos = $input.prop('selectionStart');
+        var value = $input.val();
+        console.log("if value" + value);
         if (value){
         //Eliminado, genera conflicto con la inserciond ecaracteres
         //var trimmedValue = value.trim();//string sin espacios
           if (this.model.get("valor") !== value){
+            console.log("se guarda dentro del modelo: " + value);
             this.model.save({ valor: value });
             //this.model.trigger('change', this.model);
           }
           } else {
             if (this.model.get("valor")){
+              console.log("se  pone en vacio ");
               this.model.save({valor : ""});
               //this.model.trigger('change', this.model);
             }

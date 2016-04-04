@@ -25,6 +25,7 @@ function ($, Backbone, Marionette, _, JQUI, JST, SentenciaView) {
       var_focus:'',
 
       events:{
+
 					'click input.input_sentencia' : 'edit',
 					'click .btn-destroy-trash' : 'delete',
 					'blur .input_sentencia' : 'updateOnFocusOut',
@@ -44,6 +45,7 @@ function ($, Backbone, Marionette, _, JQUI, JST, SentenciaView) {
       onShow: function(){
       //  this.$input = this.$('.input_sentencia');
       },
+
 
   /*    clearAllInputs : function(){
       var that = this;

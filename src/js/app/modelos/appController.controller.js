@@ -18,6 +18,7 @@ define (
           show: function () {
               this.appView = new AppView();
               App.contentRegion.show(this.appView);
+              
 
               //listenTo go to home. in logo
               //this.listenTo(this.comenzandoView, 'comenzando.siguiente', this.showSiguiente);

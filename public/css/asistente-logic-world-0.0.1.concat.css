@@ -534,23 +534,23 @@ form div .label-input-assistant{
 }
 
 .my-icon-true{
- background-image: url(../images/my-icons/icon-true.png);
+ background-image: url(../img/assets/icon-true.png);
 }
 
 .my-icon-false{
- background-image: url(../images/my-icons/icon-false.png);
+ background-image: url(../img/assets/icon-false.png);
 }
 
 .my-icon-none{
- background-image: url(../images/my-icons/icon-none.png);
+ background-image: url(../img/assets/icon-none.png);
 }
 
 .my-icon-alert{
- background-image: url(../images/my-icons/icon-alert.png);
+ background-image: url(../img/assets/icon-alert.png);
 }
 
 .my-icon-editing{
- background-image: url(../images/my-icons/icon-editing.png);
+ background-image: url(../img/assets/icon-editing.png);
 }
 
 /*Sentencias */

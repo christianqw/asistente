@@ -17,7 +17,7 @@ define (
               //this.sentenciaModel = options.sModel;
               this.sentenciaCollection = new SentenciaCollection({});
               this.cargar();
-              console.log('despues del cargar: ' + JSON.stringify(this.sentenciaCollection.toJSON()));
+              
           },
 
           show: function () {
