@@ -148,7 +148,7 @@ function program5(depth0,data) {
   return buffer;
   }
 
-  buffer += "<ul>\r\n";
+  buffer += "<ul class=\"nav nav-tabs\">\r\n";
   stack1 = helpers.each.call(depth0, (depth0 && depth0.elements), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\r\n  <div style=\"float: right\">\r\n    <button id=\"add_element\" type=\"button\" class=\"btn btn-default btn_addedit_elem btn-block\">Agregar</button>\r\n    <button id=\"edit_element\" type=\"button\" class=\"btn btn-default btn_addedit_elem btn-block\">Editar</button>\r\n  </div>\r\n</ul>\r\n\r\n";
@@ -180,11 +180,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (stack1 = helpers.estado) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.estado); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\"></i>\r\n         </button>\r\n        </span>\r\n        <img src=\"";
-  if (stack1 = helpers.img) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = (depth0 && depth0.img); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
-  buffer += escapeExpression(stack1)
-    + "\">\r\n    </div><!-- /input-group -->\r\n<label class=\"label-mensaje\">";
+    + "\"></i>\r\n         </button>\r\n        </span>\r\n    </div><!-- /input-group -->\r\n<label class=\"label-mensaje\">";
   if (stack1 = helpers.mensaje) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.mensaje); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)

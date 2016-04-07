@@ -51,5 +51,6 @@ require(
 
         window.App = Application;
         Application.start();
+
     }
 );

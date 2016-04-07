@@ -44,7 +44,7 @@ define (
             //defino receptor donde se pueden soltar los elementos
             $(".contenedor_modelo").droppable();
             //defino menu de elementos como tabs
-          //  $( ".panel" ).tabs();
+            $( "#marco_elementos" ).tabs();
 
           },
 

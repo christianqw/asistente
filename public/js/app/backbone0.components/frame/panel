@@ -1,4 +1,4 @@
-<ul class="nav nav-tabs">
+<ul>
 {{#each elements}}
   <li><a href="#{{ref}}"> <img id="{{id}}" src="js/app/modelos/{{img}}" class="image img-responsive elemento_mundo" /></a></li>
 {{/each}}
