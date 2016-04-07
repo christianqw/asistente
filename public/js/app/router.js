@@ -4,15 +4,12 @@ define(
     'backbone',
     './data.model',
     './Pasos/Comenzando/comenzando.controller',
-    './Pasos/Paso1/paso1.controller',
-    './Pasos/Paso2/paso2.controller',
-    './Pasos/Paso3/paso3.controller',
     './modelos/appController.controller',
     './backbone.components/sentencias/sentencia.controller',
-    './backbone.components/frame/board.model'
+    './backbone.components/frame/frame.controller'
 
 ],
-function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Controller, Paso3Controller, AppController, SentenciaController, BoardModel) {
+function ($, Backbone, FormModel, ComenzandoController, AppController, SentenciaController, FrameController) {
         'use strict';
 
         var formModel = new FormModel ();
@@ -24,9 +21,6 @@ function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Co
             routes: {
               //'modelos/:nameModel' : 'showModelo', no funca
                 ':nameModel' : 'showModelo',
-                'paso1': 'showPaso1',
-                'paso2': 'showPaso2',
-                'paso3': 'showPaso3',
                 'comenzando' : 'showComenzandoAsistente',
                 'form' : "showForm"
             },
@@ -50,12 +44,17 @@ function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Co
               appController.show();
               var sentenciaController = new SentenciaController({frame:nameModel});
               sentenciaController.show();
+              var frameController = new FrameController();
+              frameController.show();
 
+
+
+//INTENTOS DE LEVANTAR EL JSON CONFIG LOCAL....
               //var json = require(['test1.json'], function(data){
               //  console.log(data);
               //});
 
-
+/*
               console.log( "JSON File:" );
               require(["./test1.json"], function(data){
                   console.log(data);
@@ -67,7 +66,7 @@ function ($, Backbone, FormModel, ComenzandoController, Paso1Controller, Paso2Co
               });
 
 
-
+*/
               /*console.log(json);
               var url = './modelos/'+nameModel+'/board-config.json';
 

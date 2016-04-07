@@ -28,7 +28,7 @@ function ($, Backbone, LocalStorage, Marionette, _, JQUI, JST) {
           img:"js/app/modelos/granja/images/iconChancho.png",
           estado : "my-icon-none", //blanco - none
           mensaje:""
-      },
+      }
 
     });
 

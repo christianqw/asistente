@@ -18,7 +18,7 @@ define (
               this.sentenciaCollection = new SentenciaCollection();
               this.cargar();
               //console.log(Routing.generate('blog_show', { "slug": 'my-blog-post'}));
-              this.pedidodelJson(options.frame);
+              //this.pedidodelJson(options.frame);
               console.log('despues del cargar: ' + JSON.stringify(this.sentenciaCollection.toJSON()));
           },
 
@@ -28,6 +28,7 @@ define (
           },
 
           cargar: function (){
+            console.log("dentro de cargar");
             var formDataInic = {};
             this.sentenciaCollection.add(new SentenciaModel(formDataInic));
             formDataInic = {nombre:"form_02"};

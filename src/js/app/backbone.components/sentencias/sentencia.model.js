@@ -25,9 +25,10 @@ function ($, Backbone, LocalStorage, Marionette, _, JQUI, JST) {
       defaults:{
           nombre:"form_X",
           valor:"",
-          estado:"my-icon-none", //blanco - none
+          img:"js/app/modelos/granja/images/iconChancho.png",
+          estado : "my-icon-none", //blanco - none
           mensaje:""
-      },
+      }
 
     });
 

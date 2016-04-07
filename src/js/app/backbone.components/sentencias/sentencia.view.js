@@ -19,6 +19,7 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
       template:'sentencia.template.hbs',
       var_char_pos : 0,
 
+
       events:{
 					'click input.input_sentencia' : 'edit',
 					'click .btn-destroy-trash' : 'delete',

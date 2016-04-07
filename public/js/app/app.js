@@ -69,7 +69,7 @@ function (jquery, _, Backbone, Marionette, Handlebars, JST, Router) {
         Application.addRegions({
             contentRegion: '#contentRegion',
             headerRegion: '#headerRegion',
-            boardRegion: '',
+            boardRegion: '#panel_mundo1',
             panelRegion:'',
             sentencesRegion: '#lista_sentencias',
             modalRegion: ModalRegion
