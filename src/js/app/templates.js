@@ -87,6 +87,77 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
+this["JST"]["panel.template.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n  <li><a href=\"#";
+  if (stack1 = helpers.ref) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.ref); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\"> <img id=\"";
+  if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.id); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" src=\"js/app/modelos/";
+  if (stack1 = helpers.img) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.img); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"image img-responsive elemento_mundo\" /></a></li>\r\n";
+  return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n  <form id=\"";
+  if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.id); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"lista_atributos nav-atributo\">\r\n    ";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.att), {hash:{},inverse:self.noop,fn:self.program(4, program4, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n";
+  return buffer;
+  }
+function program4(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n      <select name=\"";
+  if (stack1 = helpers.name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.name); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"atributo form-inline\">\r\n        ";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.op), {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n      </select>\r\n    ";
+  return buffer;
+  }
+function program5(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\r\n            <option>";
+  if (stack1 = helpers.estado) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.estado); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</option>\r\n        ";
+  return buffer;
+  }
+
+  buffer += "<ul>\r\n";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.elements), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n  <div style=\"float: right\">\r\n    <button id=\"add_element\" type=\"button\" class=\"btn btn-default btn_addedit_elem btn-block\">Agregar</button>\r\n    <button id=\"edit_element\" type=\"button\" class=\"btn btn-default btn_addedit_elem btn-block\">Editar</button>\r\n  </div>\r\n</ul>\r\n\r\n";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.tabs), {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n";
+  return buffer;
+  });
+
 this["JST"]["sentencia.template.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
@@ -127,7 +198,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<div id=\"app_container\" class=\"container-fluid\">\r\n    <div class=\"row\">\r\n      <!-- start: Panel Modelo-->\r\n      <div class=\"col-md-6\">\r\n        <!-- start:Herramientas Modelo-->\r\n        <div id=\"marco_elementos\" class=\"thumbnail\">\r\n          <ul>\r\n            <div style=\"float: right\">\r\n              <button id=\"add_element\" type=\"button\" class=\"btn btn-default btn_addedit_elem btn-block\">Agregar</button>\r\n              <button id=\"edit_element\" type=\"button\" class=\"btn btn-default btn_addedit_elem btn-block\">Editar</button>\r\n            </div>\r\n          </ul>\r\n          <form id=\"tabs-1\" class=\"lista_atributos nav-atributo\">\r\n              <select name=\"att1\" class=\"atributo form-inline\">\r\n                <option>Chico</option>\r\n                <option>Mediano</option>\r\n                <option>Grande</option>\r\n              </select>\r\n              <select name=\"att2\" class=\"atributo form-inline\">\r\n                <option>Despierto</option>\r\n                <option>Dormido</option>\r\n              </select>\r\n          </form>\r\n            <form id=\"tabs-2\" class=\"lista_atributos nav-atributo\">\r\n              <select name=\"name1\" class=\"atributo form-inline\">\r\n                <option>Single</option>\r\n                <option>Single2</option>\r\n              </select>\r\n              <select name=\"last\" class=\"atributo form-inline\">\r\n                <option>patitp</option>\r\n                <option>elefante</option>\r\n              </select>\r\n            </form>\r\n        </div>\r\n        <!-- end:Herramientas Modelo-->\r\n        <!-- Start:Mundo Modelo-->\r\n        <div id=\"panel_mundo1\" class=\"contenedor_modelo\">\r\n        <!-- MASCARA -->\r\n        <!-- FONDO -->\r\n\r\n          <script id=\"Elemento_Template\" type=\"text/template\">\r\n            <img class=\"elemento_insertado\"  src=\"<%= img %>\">\r\n            <button class=\"destroy\"></span>\r\n              <span class=\"glyphicon glyphicon-remove-sign\" aria-hidden=\"true\"></span>\r\n            </button>\r\n            <label class=\"nombre-elemento\"> <%= nombre %> </label>\r\n            <input class=\"nombre-edit\"> </input>\r\n          </script>\r\n\r\n        </div>\r\n        <!-- end:Mundo Modelo-->\r\n      </div>\r\n       <!-- start: Panel Formulas-->\r\n       <div class=\"col-md-6\">\r\n        <!-- Herramientas Sentencias-->\r\n        <div class=\"thumbnail\"><!-- Herramientas sentencia-->\r\n          <div class=\"row\">\r\n            <div id=\"\" class=\"col-md-5\">\r\n              <div id=\"btn-group-char-1\" class=\"btn-group btn-group-justified\" role=\"group\" >\r\n                <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default \"> &not; </button>\r\n                </div>\r\n              <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default \"> &and; </button> <!-- /\\ -->\r\n                </div>\r\n              <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default \"> &or; </button> <!-- v -->\r\n                </div>\r\n              <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default \"> &rarr; </button> <!--  -> -->\r\n                </div>\r\n              </div>\r\n              <div  id=\"btn-group-char-2\" class=\"btn-group btn-group-justified\" role=\"group\" >\r\n                <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default\"> &exist; </button> <!-- E -->\r\n                </div>\r\n                <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default\"> &forall; </button> <!-- A -->\r\n                </div>\r\n                <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default\"> ( </button>\r\n                </div>\r\n                <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default\"> ) </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"btn-toolbar col-md-7\" role=\"toolbar\" > <!-- style=\"background-color: yellow;\" -->\r\n              <div class=\"row \">\r\n                <div class=\"col-xs-6\" >\r\n                <button id=\"id_btn_add_sentencia\" type=\"button\" class=\"btn btn-default btn-block\">Agregar Sentencia</button>\r\n                <button id=\"id_btn_clear\" type=\"button\" class=\"btn btn-default btn-block\">Limpiar</button>\r\n                </div>\r\n                <div class=\"col-xs-6\">\r\n                <button id=\"id_btn_remove\" type=\"button\" class=\"btn btn-default btn-block\">Borrar</button>\r\n                <button id=\"id_btn_action\" type=\"button\" class=\"btn btn-default btn-block\">Verificar</button>\r\n                </div>\r\n              </div>\r\n\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <!-- Contenedor Sentencias-->\r\n        <div class=\"thumbnail\"> <!-- Panel sentencia-->\r\n          <div id=\"panel_sentencias\" class=\"caption\">\r\n          <ul id=\"lista_sentencias\">\r\n\r\n          </ul>\r\n          </div>\r\n        </div>\r\n\r\n\r\n      </div>\r\n       <!-- end: Panel Formulas-->\r\n";
+  return "<div id=\"app_container\" class=\"container-fluid\">\r\n    <div class=\"row\">\r\n      <!-- start: Panel Modelo-->\r\n      <div class=\"col-md-6\">\r\n        <!-- start:Herramientas Modelo-->\r\n        <div id=\"marco_elementos\" class=\"thumbnail\">\r\n        </div>\r\n        <!-- end:Herramientas Modelo-->\r\n        <!-- Start:Mundo Modelo-->\r\n        <div id=\"panel_mundo1\" class=\"contenedor_modelo\">\r\n        <!-- MASCARA -->\r\n        <!-- FONDO -->\r\n\r\n          <script id=\"Elemento_Template\" type=\"text/template\">\r\n            <img class=\"elemento_insertado\"  src=\"<%= img %>\">\r\n            <button class=\"destroy\"></span>\r\n              <span class=\"glyphicon glyphicon-remove-sign\" aria-hidden=\"true\"></span>\r\n            </button>\r\n            <label class=\"nombre-elemento\"> <%= nombre %> </label>\r\n            <input class=\"nombre-edit\"> </input>\r\n          </script>\r\n\r\n        </div>\r\n        <!-- end:Mundo Modelo-->\r\n      </div>\r\n       <!-- start: Panel Formulas-->\r\n       <div class=\"col-md-6\">\r\n        <!-- Herramientas Sentencias-->\r\n        <div class=\"thumbnail\"><!-- Herramientas sentencia-->\r\n          <div class=\"row\">\r\n            <div id=\"\" class=\"col-md-5\">\r\n              <div id=\"btn-group-char-1\" class=\"btn-group btn-group-justified\" role=\"group\" >\r\n                <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default \"> &not; </button>\r\n                </div>\r\n              <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default \"> &and; </button> <!-- /\\ -->\r\n                </div>\r\n              <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default \"> &or; </button> <!-- v -->\r\n                </div>\r\n              <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default \"> &rarr; </button> <!--  -> -->\r\n                </div>\r\n              </div>\r\n              <div  id=\"btn-group-char-2\" class=\"btn-group btn-group-justified\" role=\"group\" >\r\n                <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default\"> &exist; </button> <!-- E -->\r\n                </div>\r\n                <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default\"> &forall; </button> <!-- A -->\r\n                </div>\r\n                <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default\"> ( </button>\r\n                </div>\r\n                <div class=\"btn-group\" role=\"group\">\r\n                <button type=\"button\" onclick=\"\" class=\"btn-character btn btn-default\"> ) </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"btn-toolbar col-md-7\" role=\"toolbar\" > <!-- style=\"background-color: yellow;\" -->\r\n              <div class=\"row \">\r\n                <div class=\"col-xs-6\" >\r\n                <button id=\"id_btn_add_sentencia\" type=\"button\" class=\"btn btn-default btn-block\">Agregar Sentencia</button>\r\n                <button id=\"id_btn_clear\" type=\"button\" class=\"btn btn-default btn-block\">Limpiar</button>\r\n                </div>\r\n                <div class=\"col-xs-6\">\r\n                <button id=\"id_btn_remove\" type=\"button\" class=\"btn btn-default btn-block\">Borrar</button>\r\n                <button id=\"id_btn_action\" type=\"button\" class=\"btn btn-default btn-block\">Verificar</button>\r\n                </div>\r\n              </div>\r\n\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <!-- Contenedor Sentencias-->\r\n        <div class=\"thumbnail\"> <!-- Panel sentencia-->\r\n          <div id=\"panel_sentencias\" class=\"caption\">\r\n          <ul id=\"lista_sentencias\">\r\n\r\n          </ul>\r\n          </div>\r\n        </div>\r\n\r\n\r\n      </div>\r\n       <!-- end: Panel Formulas-->\r\n";
   });
 
 return this["JST"];

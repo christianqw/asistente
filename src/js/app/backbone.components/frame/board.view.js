@@ -33,11 +33,11 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
       },
 
       onBeforeRender: function () {
-          //this.ui.paso1Class.css('background', 'green');
+
       },
 
       onShow: function(){
-      //  this.$input = this.$('.input_sentencia');
+
       },
 
       setPosyMascara:function(element, data, size){

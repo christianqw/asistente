@@ -514,11 +514,39 @@ form div .label-input-assistant{
 	padding: 9px;
 }
 
-#myMascara {
+#myMascara { 
   position: absolute;
   display:none;
 }
 
+#marco_elementos{
+	  margin-bottom: 5px;
+}
+
+#panel {
+  margin : 0px;
+}
+
+#tabs-1{
+	padding: 8px 10px 2px;
+}
+
+.nav > select {
+    position: relative;
+    display: block;
+}
+.btn_addedit_elem{
+	  padding: 1px 12px;
+}
+
+.lista_atributos{
+	  margin-bottom: 0;
+}
+
+.atributo{
+  padding: 3px 4px;
+  height: 26px;
+}
 
 /*label Sentencia*/
 

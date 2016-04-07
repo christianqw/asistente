@@ -70,7 +70,7 @@ function (jquery, _, Backbone, Marionette, Handlebars, JST, Router) {
             contentRegion: '#contentRegion',
             headerRegion: '#headerRegion',
             boardRegion: '#panel_mundo1',
-            panelRegion:'',
+            panelRegion:'#marco_elementos',
             sentencesRegion: '#lista_sentencias',
             modalRegion: ModalRegion
         });

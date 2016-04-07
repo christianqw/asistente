@@ -1,0 +1,22 @@
+{
+	"elements":[
+		{"ref":"tabs-1", "id":"tipo1", "img":"granja/images/chancho.png"},
+    {"ref":"tabs-1", "id":"tipo2", "img":"granja/images/gallina.png"},
+    {"ref":"tabs-1", "id":"tipo3", "img":"granja/images/pato.png"},
+    {"ref":"tabs-1", "id":"tipo4", "img":"granja/images/vaca.png"}
+			],
+	"tabs":[{"id":"tabs-1",
+          "att" : [{"name":"att1", "op":[{"estado":"Despierto"},{"estado":"Dormido"}]}
+			    ]
+		}],
+  "map" : {
+          "tipo1Despierto":"granja/images/chancho.png",
+          "tipo2Despierto":"granja/images/gallina.png",
+          "tipo3Despierto":"granja/images/pato.png",
+          "tipo4Despierto":"granja/images/vaca.png",
+          "tipo1Dormido":"granja/images/chanchoDormido.png",
+          "tipo2Dormido":"granja/images/gallinaDormido.png",
+          "tipo3Dormido":"granja/images/patoDormido.png",
+					"tipo4Dormido":"granja/images/vacaDormido.png",
+		},
+}
