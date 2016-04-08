@@ -31,7 +31,7 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
         this.mapCompuesto = this.jsonPanelConfig.map;
         console.log("map :" + this.mapCompuesto);
         console.log("JsonPanelConfig...");
-        
+
       },
 
       render: function () {
@@ -53,6 +53,11 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
 
      onBeforeRender: function () {
 
+     },
+
+     onShow: function(){
+       //defino menu de elementos como tabs
+       $( "#marco_elementos" ).tabs();
      },
 
     });

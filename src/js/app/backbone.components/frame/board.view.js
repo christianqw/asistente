@@ -37,7 +37,8 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
       },
 
       onShow: function(){
-
+        //defino receptor donde se pueden soltar los elementos
+        $(".contenedor_modelo").droppable();
       },
 
       setPosyMascara:function(element, data, size){

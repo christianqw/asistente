@@ -15,34 +15,21 @@ define (
 
           initialize: function () {
               var JsonBoardConfig = this.generateJson();
-              console.log(JsonBoardConfig);
-              console.log("generamos modelo: ");
-              this.boardModel = new BoardModel(JsonBoardConfig.boardModel, JsonBoardConfig.boardMap);
-              console.log('nuevo modelo board');
-              console.log(this.boardModel);
-
-              console.log('Generamos el PAnel.... ');
               this.jsonPanelConfig = this.generateJson2();
-              console.log(this.jsonPanelConfig);
 
-
+              this.boardModel = new BoardModel(JsonBoardConfig.boardModel, JsonBoardConfig.boardMap);
           },
 
           show: function () {
-            console.log('SHOW BOARD VIEW');
             this.boardView = new BoardView({model:this.boardModel});
-            console.log("view generada... ");
             App.boardRegion.show(this.boardView);
 
-            console.log('OTRA VEZ EL JSON >>>>>> ');
-            console.log(this.jsonPanelConfig);
-
-            console.log("Generamos la Vista del Panel.... ");
             this.panelView = new PanelView({'jsonConfig' : this.jsonPanelConfig});
             App.panelRegion.show(this.panelView);
 
+            console.log('aca tendria que andar JQUI');
             //defino receptor donde se pueden soltar los elementos
-            $(".contenedor_modelo").droppable();
+            //$(".contenedor_modelo").droppable();
             //defino menu de elementos como tabs
             $( "#marco_elementos" ).tabs();
 
