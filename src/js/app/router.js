@@ -3,14 +3,9 @@ define(
     'jquery',
     'backbone',
     './data.model',
-    './Pasos/Comenzando/comenzando.controller',
-    './modelos/appController.controller',
-    './backbone.components/sentencias/sentencia.controller',
-    './backbone.components/frame/frame.controller',
-    './backbone.components/elementos/elemento.controller'
-
-],
-function ($, Backbone, FormModel, ComenzandoController, AppController, SentenciaController, FrameController, ElementoController) {
+    './logicworld/logicWorld.controller'
+  ],
+function ($, Backbone, FormModel, LogicWorldController) {
         'use strict';
 
         var formModel = new FormModel ();
@@ -22,8 +17,7 @@ function ($, Backbone, FormModel, ComenzandoController, AppController, Sentencia
             routes: {
               //'modelos/:nameModel' : 'showModelo', no funca
                 ':nameModel' : 'showModelo',
-                'comenzando' : 'showComenzandoAsistente',
-                'form' : "showForm"
+                'comenzando' : 'showComenzandoAsistente'
             },
 
             /**
@@ -40,16 +34,8 @@ function ($, Backbone, FormModel, ComenzandoController, AppController, Sentencia
               console.log("dentro de <show modelo>" + nameModel);
               //console.log("fragmento = " + Backbone.history);
               //App.event_aggregator.trigger('some:event2', 2);
-              var appController = new AppController({ router: this, fModel: formModel});
-              //acá póseo el nombre del modelo por el parametro.
-              appController.show();
-              var sentenciaController = new SentenciaController({frame:nameModel});
-              sentenciaController.show();
-              var frameController = new FrameController();
-              frameController.show();
-
-              var elementoController = new ElementoController();
-              elementoController.show();
+              var logicWorldController = new LogicWorldController({ router: this, fModel: formModel, frame:nameModel});
+              logicWorldController.show();
 
 
 //INTENTOS DE LEVANTAR EL JSON CONFIG LOCAL....
@@ -128,31 +114,6 @@ function ($, Backbone, FormModel, ComenzandoController, AppController, Sentencia
               //boardModel.fetch();
               console.log("Url fetch" );
               console.log('name = ' + boardModel.get('name'));*/
-            },
-
-            showComenzandoAsistente : function(){
-
-              var comenzandoController = new ComenzandoController({ router: this, fModel: formModel});
-              comenzandoController.show();
-            },
-
-            showPaso1: function () {
-                var paso1Controller = new Paso1Controller({ router: this, fModel: formModel});
-                paso1Controller.show();
-                console.log("Paso1  model:" + JSON.stringify(formModel));
-            },
-
-            showPaso2: function () {
-                var paso2Controller = new Paso2Controller({ router: this, fModel: formModel});
-                paso2Controller.show();
-                console.log("Paso2  model:" + JSON.stringify(formModel));
-            },
-
-            showPaso3: function () {
-                console.log('estamos en el paso 3');
-
-                var paso3Controller = new Paso3Controller({ router: this});
-                paso3Controller.show();
             }
 
 

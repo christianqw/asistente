@@ -51,7 +51,6 @@ function (jquery, _, Backbone, Marionette, Handlebars, JST, Router) {
             return strInput.toLowerCase();
         });
 
-
     });
 
 

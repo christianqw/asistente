@@ -1,0 +1,15 @@
+{
+	elements:[
+		{'ref':'tabs-1', 'id':'tipo1', 'img':'images/icon_circulo.png'},
+		{'ref':'tabs-2', 'id':'tipo2', 'img':'images/icon_estrella.png'},
+		{'ref':'tabs-1', 'id':'tipo3', 'img':'images/icon_pentagono.png'},
+		{'ref':'tabs-1', 'id':'tipo4', 'img':'images/icon_rombo.png'}
+			],
+	tabs:[
+		{'id':'tabs-1', att : [
+			{'name':'att1', op:['Chico', 'Mediano', 'Grande']},
+      {'name':'att2', op:['Verde', 'Amarillo', 'Violeta']}
+			]
+		}
+		]
+}
