@@ -15,13 +15,13 @@ define (
         var ElementoController = Marionette.Controller.extend({
 
           initialize: function () {
-              this.elementoModel = new ElementoModel({"nombre": "patito"});
+              this.elementoModel = new ElementoModel();
           },
 
           show: function () {
             this.elementoView = new ElementoView({model:this.elementoModel});
-            console.log("estamos agregando a una region que ya tiene algo mostrando....");
-            App.elementsRegion.show(this.elementoView);
+            console.log("estamos agregando a una region que está abajo....");
+            App.elementosRegion.show(  this.elementoView);
 
             console.log('aca terminó el show');
           }

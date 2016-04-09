@@ -71,8 +71,8 @@ function (jquery, _, Backbone, Marionette, Handlebars, JST, Router) {
             headerRegion: '#headerRegion',
             boardRegion: '#panel_mundo1',
             panelRegion:'#marco_elementos',
+            piecesRegion : '#lista_elementos',
             sentencesRegion: '#lista_sentencias',
-            elementsRegion: '.board',
             modalRegifon: ModalRegion
         });
     });

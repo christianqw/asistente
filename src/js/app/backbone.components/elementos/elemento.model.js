@@ -23,10 +23,10 @@ function ($, Backbone, LocalStorage, Marionette, _, JQUI, JST) {
       // Atributos por defecto de una Sentencia
       // de faltar un campo, se está asumiendo que simepre se asigna dicho atributo al crearlo
       defaults:{
-        nombre:'',
-        dominio:'',
+        nombre:'fff',
+        dominio:'ddd',
         tipo:'',
-        zona:'',
+        zona:'asdfgh',
         img: 'js/app/modelos/granja/images/vacaDormido.png',
 
         left: 0,

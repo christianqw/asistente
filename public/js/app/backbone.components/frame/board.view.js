@@ -13,7 +13,6 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
 
     var BoardView = Marionette.ItemView.extend({
 
-      className:'board',
       template:'board.template.hbs',
       //donde se inserta la vista? def dentro del controller. :D
 

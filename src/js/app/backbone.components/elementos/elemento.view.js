@@ -43,19 +43,22 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
 
       element_focus: function(){
         console.log("focus en " + this.model.get("nombre"));
-        console.log('[[[[[[   EVENT AGREGATOR   ]]]]]]');
+        console.log('[[[[[[   EVENT AGREGATOR  1 ]]]]]]');
         //this.event_aggregator.trigger("event_mundo:edit_Focus_Element", this);
       },
 
       render: function () {
+        console.log("dentro del render ElementoView........");
+        console.log(this.model.toJSON);
         this.isClosed = false;
 
         this.triggerMethod("before:render", this);
         this.triggerMethod("item:before:render", this);
                                    //{'descripcion': this.descripcion}
         console.log('antes de definir el template');
-        var html = JST[this.template]();
-console.log('aaaaaaaaaaaaaa');
+        var html = JST[this.template](this.model.toJSON());
+        console.log(html);
+        console.log('aaaaaaaaaaaaaa');
         this.$el.html(html);
         this.bindUIElements();
 
@@ -73,11 +76,11 @@ console.log('aaaaaaaaaaaaaa');
                   var data = {"left": ui.position.left, "top": ui.position.top };
                   var size = {"h": 41 , "w": 41};
 
-                  console.log('[[[[[[   EVENT AGREGATOR   ]]]]]]');
+                  console.log('[[[[[[   EVENT AGREGATOR  2 ]]]]]]');
                   //that.event_aggregator.trigger("event_board:setPos", that, data, size);
                 }
           }).css({position:"absolute", top:0, left:0});
-          console.log('[[[[[[   EVENT AGREGATOR   ]]]]]]');
+          console.log('[[[[[[   EVENT AGREGATOR 3  ]]]]]]');
         //  this.event_aggregator.trigger("event_board:setPos", that, data, size);
         return this;
      },

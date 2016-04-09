@@ -22,15 +22,15 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
         },
 
       initialize: function (options) {
-        console.log("detro del inic Jsonpanel =>");
+        //console.log("detro del inic Jsonpanel =>");
         this.jsonPanelConfig = options.jsonConfig;
-        console.log("options: ");
-        console.log(options.jsonConfig);
-        console.log("this :");
-        console.log(this.jsonPanelConfig);
+        //console.log("options: ");
+        //console.log(options.jsonConfig);
+        //console.log("this :");
+        //console.log(this.jsonPanelConfig);
         this.mapCompuesto = this.jsonPanelConfig.map;
-        console.log("map :" + this.mapCompuesto);
-        console.log("JsonPanelConfig...");
+        //console.log("map :" + this.mapCompuesto);
+        //console.log("JsonPanelConfig...");
 
       },
 

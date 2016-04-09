@@ -18,19 +18,22 @@ define (
               this.jsonPanelConfig = this.generateJson2();
 
               this.boardModel = new BoardModel(JsonBoardConfig.boardModel, JsonBoardConfig.boardMap);
+
+              console.log('fin del icin');
+              console.log(this.boardModel);
           },
 
           show: function () {
             this.boardView = new BoardView({model:this.boardModel});
             App.boardRegion.show(this.boardView);
+            /*console.log('dentro del show frame');
+            console.log('img = ' + this.boardModel.get('img'));
+            $('#panel_mundo1').css('background-image', 'url(' + this.boardModel.get('img') + ')');*/
 
             this.panelView = new PanelView({'jsonConfig' : this.jsonPanelConfig});
             App.panelRegion.show(this.panelView);
 
             console.log('aca tendria que andar JQUI');
-
-
-
           },
 
           cargar: function (){
