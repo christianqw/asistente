@@ -6,10 +6,11 @@ define(
     './Pasos/Comenzando/comenzando.controller',
     './modelos/appController.controller',
     './backbone.components/sentencias/sentencia.controller',
-    './backbone.components/frame/frame.controller'
+    './backbone.components/frame/frame.controller',
+    './backbone.components/elementos/elemento.controller'
 
 ],
-function ($, Backbone, FormModel, ComenzandoController, AppController, SentenciaController, FrameController) {
+function ($, Backbone, FormModel, ComenzandoController, AppController, SentenciaController, FrameController, ElementoController) {
         'use strict';
 
         var formModel = new FormModel ();
@@ -47,6 +48,8 @@ function ($, Backbone, FormModel, ComenzandoController, AppController, Sentencia
               var frameController = new FrameController();
               frameController.show();
 
+              var elementoController = new ElementoController();
+              elementoController.show();
 
 
 //INTENTOS DE LEVANTAR EL JSON CONFIG LOCAL....

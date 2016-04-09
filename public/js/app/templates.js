@@ -69,6 +69,24 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<!--DONDE ESTOY PARADO-->\n<div id=\"headerAssistantRegion\" class=\"panel-heading\">\n  <h2 class=\"panel-title\">Asistente - Paso 3</h2>\n</div>\n<!--2 columnas-->\n<div class=\"panel-body row\">\n  <!--COL IZQ - NAV. PASOS RESCORRIDOS - PASOS FALTANTES-->\n    <div id=\"navigateAssistantRegion\" class=\"col-sm-2\">\n      <h3 class=\"list-title\">Pasos</h3>\n      <ul class=\"list-group\">\n        <li class=\"list-group-item nav-step-assistant\">paso 1</li>\n        <li class=\"list-group-item nav-step-assistant\"> paso 2</li>\n        <li class=\"list-group-item nav-step-assistant\"><span class=\"badge\"> ← </span>paso 3</li>\n        <li class=\"list-group-item nav-step-assistant\">lita 1</li>\n        <li class=\"list-group-item nav-step-assistant\">lita 1</li>\n      </ul>\n    </div>\n<!--COL DER - FORMULARIO. -->\n    <div id=\"formAssistantRegion\" class=\"col-sm-10 \">\n        <form class=\"\"  method=\"post\">\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n          <h3 class=\"panel-title\">Bienvenidos al Asistente generador de Mundos de Logic World</h3>\n        </form>\n        <!-- BOTONES MOVIMIENTOS -->\n        <div class=\"conteiner-actions btn-group\" role=\"group\">\n            <button type=\"button\" class=\"btn btn-default btn-action\"  href=\"#paso2\"><span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"false\"> Atrás</button>\n            <button type=\"button\" class=\"btn btn-default btn-action\" href=\"#paso4\">Siguiente <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span></button>\n            <button type=\"button\" class=\"btn btn-default disabled\">Finalizar</button>\n            <button type=\"button\" class=\"btn btn-default\" href=\"#\">Cancelar</button>\n            <button type=\"button\" class=\"btn btn-default \">Ayuda</button>\n        </div>\n\n    </div>\n</div>\n";
   });
 
+this["JST"]["elemento.template.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<img class=\"elemento_insertado\"  src=\"";
+  if (stack1 = helpers.img) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.img); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\">\r\n<button class=\"destroy\"></span>\r\n<span class=\"glyphicon glyphicon-remove-sign\" aria-hidden=\"true\"></span>\r\n</button>\r\n<label class=\"nombre-elemento\"> ";
+  if (stack1 = helpers.nombre) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.nombre); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + " </label>\r\n<input class=\"nombre-edit\"> </input>\r\n";
+  return buffer;
+  });
+
 this["JST"]["board.template.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};

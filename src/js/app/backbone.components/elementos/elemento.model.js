@@ -16,22 +16,37 @@ function ($, Backbone, LocalStorage, Marionette, _, JQUI, JST) {
 
     // Nuestro moledo basico de **Sentencia** posee los atributos: 'nombre', 'valor', 'estado', 'mensaje'
 
-    var SentenciaModel = Backbone.Model.extend({
+    var ElementoModel = Backbone.Model.extend({
       //urlRoot: '/sentencia',
-      localStorage: new Store("Sentencia"),
+      localStorage: new Store("Modelos"),
 
       // Atributos por defecto de una Sentencia
       // de faltar un campo, se está asumiendo que simepre se asigna dicho atributo al crearlo
       defaults:{
-          nombre:"form_X",
-          valor:"",
-          estado : "my-icon-none", //blanco - none
-          mensaje:""
+        nombre:'',
+        dominio:'',
+        tipo:'',
+        zona:'',
+        img: 'js/app/modelos/granja/images/vacaDormido.png',
+
+        left: 0,
+        top: 0,
+      },
+
+      //function editing position and Zona
+      stop_drop: function ( data ) {
+        this.save({
+          left: data.left,
+          top: data.top,
+          zona: data.zona
+        });
+        console.log("cambio de lugar : ");
+        console.log(this);
       }
 
     });
 
-    return SentenciaModel;
+    return ElementoModel;
 
 
 });

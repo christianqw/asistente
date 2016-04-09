@@ -39,7 +39,7 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
 
         this.triggerMethod("before:render", this);
         this.triggerMethod("item:before:render", this);
-                                   //{'descripcion': this.descripcion}
+
         var html = JST[this.template](this.jsonPanelConfig);
 
         this.$el.html(html);

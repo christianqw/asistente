@@ -28,10 +28,8 @@ define (
             App.panelRegion.show(this.panelView);
 
             console.log('aca tendria que andar JQUI');
-            //defino receptor donde se pueden soltar los elementos
-            //$(".contenedor_modelo").droppable();
-            //defino menu de elementos como tabs
-            $( "#marco_elementos" ).tabs();
+
+
 
           },
 

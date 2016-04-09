@@ -72,7 +72,8 @@ function (jquery, _, Backbone, Marionette, Handlebars, JST, Router) {
             boardRegion: '#panel_mundo1',
             panelRegion:'#marco_elementos',
             sentencesRegion: '#lista_sentencias',
-            modalRegion: ModalRegion
+            elementsRegion: '.board',
+            modalRegifon: ModalRegion
         });
     });
 

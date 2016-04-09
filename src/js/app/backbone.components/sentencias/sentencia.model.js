@@ -18,7 +18,7 @@ function ($, Backbone, LocalStorage, Marionette, _, JQUI, JST) {
 
     var SentenciaModel = Backbone.Model.extend({
       //urlRoot: '/sentencia',
-      localStorage: new Store("Modelos"),
+      localStorage: new Store("Sentencia"),
 
       // Atributos por defecto de una Sentencia
       // de faltar un campo, se está asumiendo que simepre se asigna dicho atributo al crearlo
