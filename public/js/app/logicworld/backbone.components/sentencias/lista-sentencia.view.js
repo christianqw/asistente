@@ -21,7 +21,7 @@ function ($, Backbone, Marionette, _, JQUI, JST, SentenciaView) {
       //insertamos los elementos en:
       //
 
-      var_num_name: 3,
+      var_num_name: 3, /*LO PASA A TENER EL CONTROLLER*/
       var_focus:'',
 
       events:{
@@ -44,27 +44,6 @@ function ($, Backbone, Marionette, _, JQUI, JST, SentenciaView) {
 
       onShow: function(){
       //  this.$input = this.$('.input_sentencia');
-      },
-
-
-  /*    clearAllInputs : function(){
-      var that = this;
-      //iteramos sobre toda la coleccion, undercode function
-      _.each(app.sentencia_collention.models,
-        function(item){ //funcion que se le aplica a cada elemento
-          item.save({valor : ''});
-        }, this);
-      },
-*/
-      num_nameNext : function(){
-      this.var_num_name = this.var_num_name + 1;
-      },
-
-      addNew : function(){
-      var name = "form_" + this.var_num_name;
-      console.log("dentro del add New del view sentencia ");
-      this.num_nameNext();
-      app.sentencia_collention.add(new app.Sentencia({nombre: name}));
       },
 
       changeFocusSentencia : function( that ){

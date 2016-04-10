@@ -15,6 +15,8 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
 
         events: {
             //'click #siguiente': 'siguiente'
+            "click #id_btn_add_sentencia" :"addNewInput",
+            "click #id_btn_clear" : "clearAllInputs",
         },
 
 
@@ -27,9 +29,14 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
         //var boardView = new app.BoardView({model: new app.FondoModelo}); sin realizar el new en el inic
         },
 
-      //  siguiente: function () {
-      //      this.trigger('comenzando.siguiente');
-      //  }
+        addNewInput: function(){
+          this.trigger('logic.addSentencia');
+        },
+
+        clearAllInputs: function(){
+					this.trigger('logic.clearAll');
+				},
+
     });
 
     return LogicWorldView;
