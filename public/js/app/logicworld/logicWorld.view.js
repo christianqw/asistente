@@ -15,8 +15,9 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
 
         events: {
             //'click #siguiente': 'siguiente'
-            "click #id_btn_add_sentencia" :"addNewInput",
-            "click #id_btn_clear" : "clearAllInputs",
+            'click #id_btn_add_sentencia' : 'addNewInput',
+            'click #id_btn_clear'         : 'clearAllInputs',
+            'click .btn-character'        : 'addCharToInput',
         },
 
 
@@ -36,6 +37,11 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
         clearAllInputs: function(){
 					this.trigger('logic.clearAll');
 				},
+
+        addCharToInput: function(e){
+          //dentro del evento verificamos el caracter apretado dentro de la botonera de caracteres especiales.
+					this.trigger("logic.insertChar", $(e.target).text());
+        },
 
     });
 

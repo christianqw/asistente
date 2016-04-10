@@ -43,6 +43,7 @@ define (
               //eventos que escucha el controlador de su vista asociada...
               this.listenTo(this.logicWorldView, 'logic.addSentencia', this.addNewSentencia);
               this.listenTo(this.logicWorldView, 'logic.clearAll', this.clearAllInputs);
+              this.listenTo(this.logicWorldView, 'logic.insertChar', this.insertChar);
           },
 
           addNewSentencia: function(){
@@ -51,6 +52,10 @@ define (
 
           clearAllInputs: function(){
             this.sentenciaController.clearAllInputs();
+          },
+
+          insertChar: function(char){
+            this.sentenciaController.insertCharInFocus(char);
           }
 
         });

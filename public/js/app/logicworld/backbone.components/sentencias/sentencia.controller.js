@@ -14,14 +14,14 @@ define (
         var SentenciaController = Marionette.Controller.extend({
 
           var_num_name: 3, //var cont, utilizada para definir el nombre como unico.
+          var_focus:'', //modelo que posee el focus, o almacenamos para no pedirlo cada vez que se lo utiliza.
 
           initialize: function (options) {
-              //this.sentenciaModel = options.sModel;
               this.sentenciaCollection = new SentenciaCollection();
-              this.cargar();
-              //console.log(Routing.generate('blog_show', { "slug": 'my-blog-post'}));
-              //this.pedidodelJson(options.frame);
-              console.log('despues del cargar: ' + JSON.stringify(this.sentenciaCollection.toJSON()));
+              this.cargar();//agregamos 2 elementos para comenzar a trabajar.
+
+              this.listenTo(App.event_aggregator, 'sentencia.edit_Focus', this.changeFocusSentencia);
+
           },
 
           show: function () {
@@ -29,17 +29,9 @@ define (
               App.sentencesRegion.show(this.lista_sentenciaView);
           },
 
-          cargar: function (){
-            console.log("dentro de cargar");
-            var formDataInic = {};
-            this.sentenciaCollection.add(new SentenciaModel(formDataInic));
-            formDataInic = {nombre:"form_02"};
-            this.sentenciaCollection.add(formDataInic);
-          },
-
           addNewSentencia: function(){
             var name = "form_" + this.var_num_name;
-            console.log("dentro del add New del controller Sentencia ");
+            //console.log("dentro del add New del controller Sentencia ");
             this.num_nameNext();
               this.sentenciaCollection.add(new SentenciaModel({nombre: name}));
           },
@@ -54,6 +46,22 @@ define (
               }, this);
           },
 
+          insertCharInFocus: function(char){
+            if (this.var_focus){
+              this.var_focus.insertSpecificCharacter(char);
+            }
+          },
+
+          changeFocusSentencia : function( that ){
+            if( this.var_focus !== that){
+              if (this.var_focus){
+                this.var_focus.remove_editing();
+              }
+              that.add_editing();
+              this.var_focus = that;
+            }
+          },
+
           //---------------------
           //funciones auxiliares:
           //---------------------
@@ -61,17 +69,11 @@ define (
           this.var_num_name = this.var_num_name + 1;
           },
 
-
-          pedidodelJson: function(name){
-            var nameModel = name;
-            var url ='../../modelos/'+name+'/config.json';
-            console.log(url);
-          //  $.ajax({
-          //    data:{},
-          //    type: 'GET',
-          //    dataType: 'JSON',
-          //    url:'../../modelos/'+name+'config.json'
-          //  });
+          cargar: function (){
+            var formDataInic = {nombre:"form_1"};
+            this.sentenciaCollection.add(new SentenciaModel(formDataInic));
+            formDataInic = {nombre:"form_2"};
+            this.sentenciaCollection.add(formDataInic);
           }
 
         });

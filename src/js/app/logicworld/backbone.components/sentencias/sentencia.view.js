@@ -39,41 +39,37 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
       },
 
       edit: function(event){
-        console.log("dentro de edit");
-        App.event_aggregator.trigger("event_formulario:edit_Focus", this);
+        App.event_aggregator.trigger('sentencia.edit_Focus', this);
       },
 
 			delete : function(){
 				this.model.destroy();
 			},
 
-			updateOnClikBtnChar : function(c){
+			insertSpecificCharacter : function(c){
+        //Insert character at the cursor position
 				console.log("dentro de la sentencian- pos: " + this.var_char_pos);
 				var auxs = this.model.get('valor');
 				auxs = auxs.substring(0, this.var_char_pos) + c + auxs.substring(this.var_char_pos);
 				console.log(auxs);
 				this.model.save({valor : auxs});
 				this.var_char_pos = this.var_char_pos + 3;
+        console.log('Fin update char ');
 			},
 
       updateOnFocusOut: function(){
         var $input = this.$('input');
         this.var_char_pos = $input.prop('selectionStart');
         var value = $input.val();
-        console.log("if value" + value);
         if (value){
         //Eliminado, genera conflicto con la inserciond ecaracteres
         //var trimmedValue = value.trim();//string sin espacios
           if (this.model.get("valor") !== value){
-            console.log("se guarda dentro del modelo: " + value);
             this.model.save({ valor: value });
-            //this.model.trigger('change', this.model);
           }
           } else {
             if (this.model.get("valor")){
-              console.log("se  pone en vacio ");
               this.model.save({valor : ""});
-              //this.model.trigger('change', this.model);
             }
         }
       },
