@@ -18,7 +18,8 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
       //donde se inserta la vista? def dentro del controller. :D
 
       events: {
-        //evento get img...
+          'click #add_element'  : 'addNewElemento',
+          'click #edit_element' : 'editFocusElement'
         },
 
       initialize: function (options) {
@@ -29,6 +30,7 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
         //console.log("this :");
         //console.log(this.jsonPanelConfig);
         this.mapCompuesto = this.jsonPanelConfig.map;
+        this.arrKeys = this.jsonPanelConfig.keys;
         //console.log("map :" + this.mapCompuesto);
         //console.log("JsonPanelConfig...");
 
@@ -59,6 +61,38 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
        //defino menu de elementos como tabs
        $( "#marco_elementos" ).tabs();
      },
+
+     addNewElemento: function(){
+       var d = this.capturarAtributos();
+       this.trigger('panel.addElement', d);
+     },
+
+     editFocusElement: function(){
+       var d = this.capturarAtributos();
+       this.trigger('panel.editElement', d);
+     },
+
+     //-------------
+     //funciones auxiliares.
+     //-------------
+     capturarAtributos: function(){
+      var _id_atributos = $("#marco_elementos .ui-tabs-active a").attr("href");
+      var _Json_atributos = $(_id_atributos).serializeArray();
+      var tipo = $("#marco_elementos .ui-tabs-active img").attr("id");
+      var data = { "tipo" : tipo };
+      //console.log("   tipo: "+ data.tipo);
+      $.each(_Json_atributos, function (i, obj) {
+        data[obj.name] = obj.value; //cargar los atributos al data.
+      });
+      var keycompuesta = '';
+      $.each(this.arrKeys, function (i, key){
+        keycompuesta = keycompuesta + data[key];
+      });
+
+      data.img = this.mapCompuesto[keycompuesta];
+      //console.log(data );
+      return data;
+    }
 
     });
 

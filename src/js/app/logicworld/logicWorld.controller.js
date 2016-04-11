@@ -31,12 +31,15 @@ define (
               //listenTo go to home. in logo
               //this.listenTo(this.comenzandoView, 'comenzando.siguiente', this.showSiguiente);
               //acá póseo el nombre del modelo por el parametro.
-
+console.log('sentencia controller');
               this.sentenciaController = new SentenciaController({frame:this.nameModel});
               this.sentenciaController.show();
+
+console.log('frame controlller');
               var frameController = new FrameController();
               frameController.show();
 
+console.log('elemento Controller');
               var elementoController = new ElementoController();
               elementoController.show();
 

@@ -11,7 +11,7 @@ define (
     function ($, _, Marionette, JQUI, BoardModel, BoardView, PanelView) {
         'use strict';
 
-        var BoardController = Marionette.Controller.extend({
+        var FrameController = Marionette.Controller.extend({
 
           initialize: function () {
               var JsonBoardConfig = this.generateJson();
@@ -20,20 +20,23 @@ define (
               this.boardModel = new BoardModel(JsonBoardConfig.boardModel, JsonBoardConfig.boardMap);
 
               console.log('fin del icin');
-              console.log(this.boardModel);
+              //console.log(this.boardModel);
           },
 
           show: function () {
             this.boardView = new BoardView({model:this.boardModel});
             App.boardRegion.show(this.boardView);
-            /*console.log('dentro del show frame');
-            console.log('img = ' + this.boardModel.get('img'));
-            $('#panel_mundo1').css('background-image', 'url(' + this.boardModel.get('img') + ')');*/
+
+
+            //console.log('dentro del show frame');
+            //console.log('img = ' + this.boardModel.get('img'));
+            //$('#panel_mundo1').css('background-image', 'url(' + this.boardModel.get('img') + ')');
 
             this.panelView = new PanelView({'jsonConfig' : this.jsonPanelConfig});
             App.panelRegion.show(this.panelView);
 
-            console.log('aca tendria que andar JQUI');
+            this.listenTo(this.panelView, 'panel.addElement', this.addNewElemento);
+            this.listenTo(this.panelView, 'panel.editElement', this.editElemento);
           },
 
           cargar: function (){
@@ -43,7 +46,19 @@ define (
             this.sentenciaCollection.add(formDataInic);
           },
 
+          addNewElemento: function(data){
+            console.log('dentro del controller. add --->');
+            App.event_aggregator.trigger('elemento.addElement', data);
+          },
+
+          editElemento: function(data){
+            console.log('dentro del controller. edit --->');
+            App.event_aggregator.trigger('elemento.editElement', data);
+          },
+
+          //-------------
           //emulando JSON
+          //-------------
           generateJson: function (){
             var Json ={
               "boardModel" : {"img": "js/app/logicworld/modelos/granja/images/granja.png",
@@ -87,11 +102,12 @@ define (
                 "tipo3Dormido":"granja/images/patoDormido.png",
                 "tipo4Dormido":"granja/images/vacaDormido.png"
               },
+              "keys" : ["tipo", "att1"]
             };
             return  Json;
           }
 
         });
-        return BoardController;
+        return FrameController;
     }
 );
