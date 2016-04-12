@@ -18,16 +18,16 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
       template:'elemento.template.hbs',
 
       events:{
-        'click img.elemento_insertado': 'element_focus',
+        'click img.img_elemento': 'element_focus',
         'dblclick label': 'edit_nombre',
         'keypress .nombre-edit': 'updateOnEnter',
         'keydown .nombre-edit': 'revertOnEscape',
         'blur .nombre-edit': 'close',
-        'click .destroy' : 'delete'
+        'click .destroy' : 'delete',
 			},
 
       initialize: function () {
-        console.log('detro del inic elemento');
+
         this.listenTo(this.model, 'destroy', this.remove); //cuando se elimina actualiza
 				this.listenTo(this.model, 'change', this.individualRender);  //Por los espacion adelante... cuando se edita el modelo actualiza.
 			},
@@ -41,9 +41,8 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
       },
 
       element_focus: function(){
-        console.log("focus en " + this.model.get("nombre"));
-        console.log('[[[[[[   EVENT AGREGATOR  1 ]]]]]]');
-        //this.event_aggregator.trigger("event_mundo:edit_Focus_Element", this);
+        App.event_aggregator.trigger('elemento.changeFocus', this);
+
       },
 
       render: function () {
@@ -66,21 +65,18 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
 
         //CODIGO AGREGADO PROPIO DE LA CLASE...
         this.$input = this.$('.nombre-edit');
-        this.$img = this.$('img_elemtn');
         var that = this;
-        var data = {"left": 0, "top": 0 };
-        var size = {"h": 41 , "w": 41};
+        var newData = {'left': 0, 'top': 0 };
         this.$el.draggable({
                   stop: function( event, ui ) {
-                  var data = {"left": ui.position.left, "top": ui.position.top };
-                  var size = {"h": 41 , "w": 41};
+                  var newData = {'left': ui.position.left, 'top': ui.position.top };
 
                   console.log('[[[[[[   EVENT AGREGATOR  2 ]]]]]]');
-                  //that.event_aggregator.trigger("event_board:setPos", that, data, size);
+                  App.event_aggregator.trigger('board.setPos', that, newData);
                 }
           }).css({position:"absolute", top:0, left:0});
           console.log('[[[[[[   EVENT AGREGATOR 3  ]]]]]]');
-        //  this.event_aggregator.trigger("event_board:setPos", that, data, size);
+          App.event_aggregator.trigger('board.setPos', that, newData);
         return this;
      },
 
@@ -90,7 +86,7 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
        this.triggerMethod("before:render", this);
        this.triggerMethod("item:before:render", this);
                                   //{'descripcion': this.descripcion}
-       var html = JST[this.template]();
+       var html = JST[this.template](this.model.toJSON());
 
        this.$el.html(html);
        this.bindUIElements();
@@ -114,8 +110,9 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
     },
 
     editData : function(d){
+      //console.log('data');
+      //console.log(d);
       this.model.save(d);
-      this.model.updateImg();
       this.individualRender();
     },
 

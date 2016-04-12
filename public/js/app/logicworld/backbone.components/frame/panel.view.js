@@ -63,19 +63,19 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
      },
 
      addNewElemento: function(){
-       var d = this.capturarAtributos();
-       this.trigger('panel.addElement', d);
+       this.capturarAtributos('new');
+       //this.trigger('panel.addElement', d);
      },
 
      editFocusElement: function(){
-       var d = this.capturarAtributos();
-       this.trigger('panel.editElement', d);
+       this.capturarAtributos('edit');
+       //this.trigger('panel.editElement', d);
      },
 
      //-------------
      //funciones auxiliares.
      //-------------
-     capturarAtributos: function(){
+     capturarAtributos: function(action){
       var _id_atributos = $("#marco_elementos .ui-tabs-active a").attr("href");
       var _Json_atributos = $(_id_atributos).serializeArray();
       var tipo = $("#marco_elementos .ui-tabs-active img").attr("id");
@@ -90,8 +90,38 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
       });
 
       data.img = this.mapCompuesto[keycompuesta];
+      this.realImgDimension(data, action);
+
+      //console.log('-----------------');
       //console.log(data );
-      return data;
+      //console.log('-----------------');
+      //return data;
+    },
+
+    realImgDimension: function(data, action) {
+      console.log("qwertyuiopoiuytrertyuiopoiuytrertyuiopoiuytrertyuip");
+      console.log(data);
+      console.log(action);
+
+      var i = new Image();
+      i.src = 'js/app/logicworld/modelos/'+ data.img;
+      i.onload = function() {
+        console.log("_____________________");
+        console.log(data);
+        console.log(action);
+        data.imgWidth = i.width;
+        data.imgHeight = i.height;
+        console.log("data dentro del realImg");
+        console.log(data);
+        if (action === 'new'){
+          App.event_aggregator.trigger('elemento.addElement', data);
+        } else if (action === 'edit'){
+            App.event_aggregator.trigger('elemento.editElement', data);
+        }else {
+          console.log("no es ninguna de las acciones declaradas");
+        }
+      };
+
     }
 
     });

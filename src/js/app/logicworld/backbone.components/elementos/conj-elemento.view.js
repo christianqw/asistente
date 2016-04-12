@@ -20,7 +20,6 @@ function ($, Backbone, Marionette, _, JQUI, JST, ElementoView) {
       // dentro de "piecesRegion"
 
       events:{
-          "click #asd" :"mensaje2",
 			},
 
       initialize: function () {
@@ -29,15 +28,7 @@ function ($, Backbone, Marionette, _, JQUI, JST, ElementoView) {
 
       onBeforeRender: function () {},
 
-      onShow: function(){},
-
-      mensaje2: function(){
-      alert("Dentro de Colection");
-      _.each(app.elemento_collention.models,
-      function(item){ //funcion que se le aplica a cada elemento
-      console.log(item);
-      }, this);
-      }
+      onShow: function(){}
 
     });
 

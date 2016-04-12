@@ -14,12 +14,12 @@ define (
         var FrameController = Marionette.Controller.extend({
 
           initialize: function () {
-              var JsonBoardConfig = this.generateJson();
+              this.jsonBoardConfig = this.generateJson();
               this.jsonPanelConfig = this.generateJson2();
 
-              this.boardModel = new BoardModel(JsonBoardConfig.boardModel, JsonBoardConfig.boardMap);
+              this.boardModel = new BoardModel(this.jsonBoardConfig.boardModel, {'map' : this.jsonBoardConfig.boardMap});
 
-              console.log('fin del icin');
+              console.log("bordModel");
               //console.log(this.boardModel);
           },
 
@@ -28,24 +28,15 @@ define (
             App.boardRegion.show(this.boardView);
 
 
-            //console.log('dentro del show frame');
-            //console.log('img = ' + this.boardModel.get('img'));
-            //$('#panel_mundo1').css('background-image', 'url(' + this.boardModel.get('img') + ')');
-
             this.panelView = new PanelView({'jsonConfig' : this.jsonPanelConfig});
             App.panelRegion.show(this.panelView);
 
-            this.listenTo(this.panelView, 'panel.addElement', this.addNewElemento);
-            this.listenTo(this.panelView, 'panel.editElement', this.editElemento);
+          //  this.listenTo(this.panelView, 'panel.addElement', this.addNewElemento);
+            //this.listenTo(this.panelView, 'panel.editElement', this.editElemento);
+            this.listenTo(App.event_aggregator, 'board.setPos', this.setPosyMascara);
           },
 
-          cargar: function (){
-            var formDataInic = {};
-            this.sentenciaCollection.add(new SentenciaModel(formDataInic));
-            formDataInic = {nombre:"form_02"};
-            this.sentenciaCollection.add(formDataInic);
-          },
-
+/*
           addNewElemento: function(data){
             console.log('dentro del controller. add --->');
             App.event_aggregator.trigger('elemento.addElement', data);
@@ -54,6 +45,29 @@ define (
           editElemento: function(data){
             console.log('dentro del controller. edit --->');
             App.event_aggregator.trigger('elemento.editElement', data);
+          },
+*/
+          setPosyMascara:function(element, newData){
+            console.log('GET ATRIBUTO BOARD');
+            if (this.boardModel.get('tipo') === 'zona') {
+              console.log(element.model.get('imgWidth'));
+              //agregar la zona
+              var z =  this.boardModel.getStringZona(newData, element.model.get('imgHeight'), element.model.get('imgWidth'));
+              newData.zona = z;
+              element.editData(newData);
+              console.log('<<<<<<<<<<<<<<<<<<<');
+              console.log(element);
+          }else if (this.boardModel.get('tipo') === 'tablero'){
+              var j = this.boardModel.getFilCol(newData, element.model.get('imgHeight'), element.model.get('imgWidth'));
+              console.log('############## tableroooooo #####################333333');
+              newData.col = j.col;
+              newData.fil = j.fil;
+              element.editData(newData);
+              console.log('<<<<<<<<<<<<<<<<<<<');
+              console.log(element);
+            }else {
+                console.log('el tipo de board no está definido.');
+              }
           },
 
           //-------------

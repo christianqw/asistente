@@ -46,10 +46,6 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
         data.zona= z;
         element.model.stop_drop(data);
         //alert("Agregados 3 atributos");
-      },
-
-      alertamos:function (){
-        alert("funcionó el evento drop");
       }
 
     });

@@ -26,7 +26,7 @@ function ($, Backbone, LocalStorage, Marionette, _, JQUI, JST) {
         nombre:'fff',
         dominio:'ddd',
         tipo:'',
-        zona:'asdfgh',
+        zona:'',
         img: 'js/app/logicworld/modelos/granja/images/vacaDormido.png',
 
         left: 0,
