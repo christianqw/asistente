@@ -38,6 +38,9 @@
     display: block;
 }
 
+.nombre-edit {
+	 width: 45px;
+}
 #lista_elementos div .nombre-edit {/* <<<check*/
     display: none;
 }
@@ -45,6 +48,11 @@
 #lista_elementos div.focus-name .nombre-edit {/* <<<check*/
     display: block;
 		/*position;*/
+}
+
+#lista_elementos div.focus-name .nombre-elemento {/* <<<check*/
+    display: none;
+
 }
 
 .draggable label.nombre-elemento{/* <<<check*/

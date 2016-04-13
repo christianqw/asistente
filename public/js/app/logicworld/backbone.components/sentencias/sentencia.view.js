@@ -40,6 +40,7 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
 
       edit: function(event){
         App.event_aggregator.trigger('sentencia.edit_Focus', this);
+        this.$('.input_sentencia').focus();
       },
 
 			delete : function(){

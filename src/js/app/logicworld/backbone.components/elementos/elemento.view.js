@@ -9,6 +9,8 @@ define(
 ],
 function ($, Backbone, Marionette, _, JQUI, JST) {
     'use strict';
+    var ENTER_KEY = 13;
+    var ESC_KEY = 27;
 
 
     var ElementoView = Marionette.ItemView.extend({
@@ -71,12 +73,12 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
                   stop: function( event, ui ) {
                   var newData = {'left': ui.position.left, 'top': ui.position.top };
 
-                  console.log('[[[[[[   EVENT AGREGATOR  2 ]]]]]]');
-                  App.event_aggregator.trigger('board.setPos', that, newData);
+                  App.event_aggregator.trigger('board.setPos', that, newData); //actualizamos atributos pos y valor de mascara.
+                  App.event_aggregator.trigger('elemento.changeFocus', that); //al soltarlo el focus esta sobre el elemento movido.
                 }
           }).css({position:"absolute", top:0, left:0});
-          console.log('[[[[[[   EVENT AGREGATOR 3  ]]]]]]');
-          App.event_aggregator.trigger('board.setPos', that, newData);
+          App.event_aggregator.trigger('board.setPos', this, newData);//actualizar Atributos.
+          App.event_aggregator.trigger('elemento.changeFocus', this);//soltar -> posee el foco.
         return this;
      },
 
@@ -122,24 +124,24 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
 
     edit_nombre: function () {
       this.$el.addClass('focus-name');
+      this.$input.val(this.model.get('nombre'));
       this.$input.focus();
     },
 
     // Close the `"editing"` mode, saving changes to the todo.
     close: function () {
-    var value = this.$input.val();
-    var trimmedValue = value.trim();
+      var value = this.$input.val();
+      var trimmedValue = value.trim();
 
-    if (!this.$el.hasClass('focus-name')) {
-    return;
-    }
-    if (trimmedValue) {
-    this.model.save({ nombre: trimmedValue });
-
-    if (value !== trimmedValue) {
-    this.model.trigger('change');
-    }
-    }
+      if (!this.$el.hasClass('focus-name')) {
+        return;
+      }
+      if (trimmedValue) {
+        this.model.save({ nombre: trimmedValue });
+        if (value !== trimmedValue) {
+          this.model.trigger('change');
+        }
+      }
     this.$el.removeClass('focus-name');
     },
 
@@ -148,17 +150,17 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
     },
 
     updateOnEnter: function (e) {
-    if (e.which === ENTER_KEY) {
-    this.close();
-    }
+      if (e.which === ENTER_KEY) {
+        this.close();
+      }
     },
 
     revertOnEscape: function (e) {
-    if (e.which === ESC_KEY) {
-    this.$el.removeClass('focus-name');
-    // Also reset the hidden input back to the original value.
-    this.$input.val(this.model.get('nombre'));
-    }
+      if (e.which === ESC_KEY) {
+        this.$el.removeClass('focus-name');
+        // Also reset the hidden input back to the original value.
+        this.$input.val(this.model.get('nombre'));
+      }
     },
 
     });
