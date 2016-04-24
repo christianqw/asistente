@@ -65,6 +65,10 @@ define (
             }
           },
 
+          getCollection: function() {
+            return this.elementoCollection;
+          },
+
           //---------------
           //
           //---------------

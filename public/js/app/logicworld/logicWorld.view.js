@@ -18,6 +18,7 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
             'click #id_btn_add_sentencia' : 'addNewInput',
             'click #id_btn_clear'         : 'clearAllInputs',
             'click .btn-character'        : 'addCharToInput',
+            'click #id_btn_action' : 'action',
         },
 
 
@@ -40,8 +41,12 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
 
         addCharToInput: function(e){
           //dentro del evento verificamos el caracter apretado dentro de la botonera de caracteres especiales.
-					this.trigger("logic.insertChar", $(e.target).text());
+					this.trigger('logic.insertChar', $(e.target).text());
         },
+
+        action: function(){
+          this.trigger('logic.verificar');
+        }
 
     });
 

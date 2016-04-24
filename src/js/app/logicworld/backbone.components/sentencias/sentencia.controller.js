@@ -27,6 +27,7 @@ define (
           show: function () {
               this.lista_sentenciaView = new SentenciaCollectionView({collection:this.sentenciaCollection});
               App.sentencesRegion.show(this.lista_sentenciaView);
+
           },
 
           addNewSentencia: function(){
@@ -52,7 +53,7 @@ define (
             }
           },
 
-          changeFocusSentencia : function( that ){
+          changeFocusSentencia: function( that ){
             if( this.var_focus !== that){
               if (this.var_focus){
                 this.var_focus.remove_editing();
@@ -60,6 +61,10 @@ define (
               that.add_editing();
               this.var_focus = that;
             }
+          },
+
+          getCollection: function() {
+            return this.sentenciaCollection;
           },
 
           //---------------------

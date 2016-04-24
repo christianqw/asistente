@@ -23,14 +23,6 @@ function (jquery, _, Backbone, Marionette, Handlebars, JST, Router) {
 
     Application.event_aggregator = _.extend({}, Backbone.Events);
 
-    Application.event_aggregator.on('some:event', function(){
-       alert("some event was fired!");
-    });
-
-    Application.event_aggregator.on('some:event2', function(asd){
-       alert("some event was fired!" + asd);
-    });
-
     // Handlebars es la libreria que se encarga de los templates. Los helpers son funciones que se registran aca y despues podes llamar desde los templates.
     Application.on('initialize:before', function (options) {
         Handlebars.registerHelper('ifCond', function (v1, v2, opts) {
@@ -71,7 +63,7 @@ function (jquery, _, Backbone, Marionette, Handlebars, JST, Router) {
             boardRegion: '#panel_mundo1',
             panelRegion:'#marco_elementos',
             piecesRegion : '#lista_elementos',
-            sentencesRegion: '#lista_sentencias',
+            sentencesRegion: '#panel_sentencias',
             modalRegifon: ModalRegion
         });
     });

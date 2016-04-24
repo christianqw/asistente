@@ -49,7 +49,7 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
 
       render: function () {
         console.log("dentro del render ElementoView........");
-        console.log(this.model.toJSON);
+        //console.log(this.model.toJSON);
         this.isClosed = false;
 
         this.triggerMethod("before:render", this);
@@ -57,8 +57,8 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
                                    //{'descripcion': this.descripcion}
         console.log('antes de definir el template');
         var html = JST[this.template](this.model.toJSON());
-        console.log(html);
-        console.log('aaaaaaaaaaaaaa');
+        //console.log(html);
+        //console.log('aaaaaaaaaaaaaa');
         this.$el.html(html);
         this.bindUIElements();
 

@@ -17,9 +17,11 @@ function ($, Backbone, Marionette, _, JQUI, JST, SentenciaView) {
       // --------------
 
       itemView : SentenciaView,
-
       //insertamos los elementos en:
       //sentenciaRegio.  '#panel_sentencias'
+      tagName:'ul',
+      id:'lista_sentencias', 
+
 
       events:{},
 
