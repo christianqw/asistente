@@ -63,37 +63,52 @@ define (
             this.sentenciaController.insertCharInFocus(char);
           },
 
+          generateListaElementos: function(arrJson){
+            var lista = [];
+            _.each(arrJson, function(item){
+              var eAux = {'nombre': item.nombre, 'left' : item.left, 'top' : item.top};
+              delete item.nombre; delete item.left; delete item.top;
+              //ademas quitamos ls que no utilizamos en la lógica
+              delete item.img; delete item.imgWidth; delete item.imgHeight;
+              eAux.atributos = item;
+              lista.push(eAux);
+            });
+            console.log('lista >>>>>');
+            return lista;
+          },
+
           verificar: function(){
-            /*console.log('XXXXXXXXXXXXXXXXXXXX..........XXXXXXXXXXXXXXXXXXXXXX');
-            console.log('collection-Elementos.toJSON(): ',   this.sentenciaController.getCollection().toJSON());
-            console.log('JSON.stringify(collection.toJSON()): ', JSON.stringify(this.sentenciaController.getCollection().toJSON()));
-            console.log('-------------------');
-            console.log('collection-Sentencias.toJSON(): ', this.elementoController.getCollection().toJSON());
-            console.log('JSON.stringify(collection.toJSON()): ', JSON.stringify(this.elementoController.getCollection().toJSON()));
-            */
             console.log('XXXXXXXXXXXXXXXXXXXX..........XXXXXXXXXXXXXXXXXXXXXX');
             var listaSentencias = this.sentenciaController.getCollection().toJSON();
-            var Json = [{'nombre':'n1', 'x' : 10, 'y':10, 'atributos':{
+            var listaElementos = this.generateListaElementos(this.elementoController.getCollection().toJSON());
+            var JsonConfig = JSON.stringify(this.getJsonConfigEstructura());
+            var nameModel = this.nameModel;
+            /*var Json = [{'nombre':'n1', 'x' : 10, 'y':10, 'atributos':{
                                                                             'topo':'tipo1', 'size' : '20'}
                                         },
                                         {'nombre':'n2', 'x' : 20, 'y':20, 'atributos':{
                                                                             'topo':'tipo2', 'ancho' : '25', 'otro':'otro-valor'}
                                         }
-                                    ];
-            console.log('collection-Elementos.toJSON(): ',   this.elementoController.getCollection().toJSON());
-            console.log('JSON.stringify(collection.toJSON()): ', JSON.stringify(this.elementoController.getCollection().toJSON()));
-            console.log('-------------------');
-            console.log('collection-Elementos.toJSON(): ',   JSON.stringify( Json));
-
+                                    ];*/
+            //console.log('collection-Elementos.toJSON(): ',   this.elementoController.getCollection().toJSON());
+            //console.log('JSON.stringify(collection.toJSON()): ', JSON.stringify(this.elementoController.getCollection().toJSON()));
+            //console.log('-------------------');
+            console.log('nameModel: ',   nameModel);
+            console.log('collection-Elementos.toJSON(): ',   JSON.stringify( listaElementos));
+            console.log('JSON.stringify(collection.toJSON()): ', JSON.stringify(listaSentencias));
+            console.log('JSON.stringify(collection.toJSON()): ', JsonConfig);
+            console.log('XXXXXXXXXXXXXXXXXXXX..........XXXXXXXXXXXXXXXXXXXXXX');
             //beggin AJAX
             $.ajax({
             type: 'post',
             headers: { 'content-type': 'application/json' },
             data:JSON.stringify({
-                    "listaElementos":Json,
-                    "listaSentencias": listaSentencias
+                    "nameIdFrame" : nameModel,
+                    "listaElementos": listaElementos,
+                    "listaSentencias": listaSentencias,
+                    "jsonConfig" : JsonConfig
                   }),
-            url: "http://localhost:8080/actionTest",
+            url: "http://localhost:8080/actionVerificar",
             //success: function(data){
             //		that.trigger("event_formulario:insert_Char", "dentro del Ajax");
             //}
@@ -108,6 +123,56 @@ define (
             //}
             });
             //end AJA
+          },
+
+          //-------------
+          //emulando JSON
+          //-------------
+          getJsonConfigEstructura: function (){
+            var Json ={
+              "Predicado":[
+                {"NombrePred":"Despierto",
+                  "CantParam":1,
+                  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"att2", "ParametroD":0, "AtributoD":"_constante"}
+                          ]},
+                {"NombrePred":"Dormido",
+                  "CantParam":1,
+                  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"att2", "ParametroD":1, "AtributoD":"_constante"}
+                          ]},
+                {"NombrePred":"EsChancho",
+                  "CantParam":1,
+                  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":0, "AtributoD":"_constante"}
+                          ]},
+                {"NombrePred":"EsGallina",
+                  "CantParam":1,
+                  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":1, "AtributoD":"_constante"}
+                          ]},
+                {"NombrePred":"EsPato",
+                  "CantParam":1,
+                  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":2, "AtributoD":"_constante"}
+                          ]},
+                {"NombrePred":"EsVaca",
+                  "CantParam":1,
+                  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":3, "AtributoD":"_constante"}
+                          ]},
+                {"NombrePred":"MismoLugar",
+                  "CantParam":2,
+                  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"zona", "ParametroD":1, "AtributoD":"zona"}
+                          ]}
+                      ],
+                "Funcion":[
+                {"Rename":"ELMASLEJANO","Class":"ElMasLejano"},
+                {"Rename":"ELMASCERANO","Class":"ElMasCercano"}
+                ],
+
+                "Elemento":[{"Dominio":"animal",
+                    "ListAtributos":[{"Atributo":"tipo","Opciones":["tipo1","tipo2","tipo3", "tipo4"]},
+                          {"Atributo":"att1","Opciones":["chico","mediano","grande"]},
+                          {"Atributo":"att2","Opciones":["despierto","dormido"]},
+                          {"Atributo":"zona","Opciones":["bosque","cielo","corral"]}]
+                      }]
+              };
+            return  Json;
           }
 
         });
