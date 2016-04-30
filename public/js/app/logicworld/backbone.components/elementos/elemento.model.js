@@ -24,7 +24,7 @@ function ($, Backbone, LocalStorage, Marionette, _, JQUI, JST) {
       // de faltar un campo, se está asumiendo que simepre se asigna dicho atributo al crearlo
       defaults:{
         nombre:'fff',
-        dominio:'ddd',
+        dominio:'animal',
         tipo:'',
         zona:'',
         img: 'js/app/logicworld/modelos/granja/images/vacaDormido.png',
