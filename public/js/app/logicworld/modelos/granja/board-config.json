@@ -1,6 +1,6 @@
 {
-  "boardModel" : {"img": "js/app/modelos/granja/images/granja.png",
-                  "img_mascara":"js/app/modelos/granja/images/mascara.png",
+  "boardModel" : {"img": "js/app/logicworld/modelos/granja/images/granja.png",
+                  "img_mascara":"js/app/logicworld/modelos/granja/images/mascara.png",
                   "tipo": "zona"
 
   },

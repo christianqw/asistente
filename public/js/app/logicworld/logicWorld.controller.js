@@ -32,11 +32,11 @@ define (
               //acá póseo el nombre del modelo por el parametro.
 
               //console.log('sentencia controller');
-              this.sentenciaController = new SentenciaController({frame:this.nameModel});
+              this.sentenciaController = new SentenciaController();
               this.sentenciaController.show();
 
               //console.log('frame controlller');
-              var frameController = new FrameController();
+              var frameController = new FrameController({nameModel:this.nameModel});
               frameController.show();
 
               //console.log('elemento Controller');

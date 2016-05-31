@@ -32,11 +32,11 @@ define (
               //acá póseo el nombre del modelo por el parametro.
 
               //console.log('sentencia controller');
-              this.sentenciaController = new SentenciaController({frame:this.nameModel});
+              this.sentenciaController = new SentenciaController();
               this.sentenciaController.show();
 
               //console.log('frame controlller');
-              var frameController = new FrameController();
+              var frameController = new FrameController({nameModel:this.nameModel});
               frameController.show();
 
               //console.log('elemento Controller');
@@ -66,8 +66,8 @@ define (
           generateListaElementos: function(arrJson){
             var lista = [];
             _.each(arrJson, function(item){
-              var eAux = {'nombre': item.nombre, 'left' : item.left, 'top' : item.top};
-              delete item.nombre; delete item.left; delete item.top;
+              var eAux = {'nombre': item.nombre, 'left' : item.left, 'top' : item.top, 'dominio' : item.dominio, 'id' : item.id};
+              delete item.nombre; delete item.left; delete item.top; delete item.dominio; delete item.id;
               //ademas quitamos ls que no utilizamos en la lógica
               delete item.img; delete item.imgWidth; delete item.imgHeight;
               eAux.atributos = item;
@@ -167,10 +167,10 @@ define (
 
                 "Elemento":[{"Dominio":"animal",
                     "ListAtributos":[{"Atributo":"tipo","Opciones":["tipo1","tipo2","tipo3", "tipo4"]},
-                          {"Atributo":"att1","Opciones":["chico","mediano","grande"]},
-                          {"Atributo":"att2","Opciones":["despierto","dormido"]},
-                          {"Atributo":"zona","Opciones":["bosque","cielo","corral"]}]
-                      }]
+                          {"Atributo":"att1","Opciones":["Despierto","Dormido"]},
+                          {"Atributo":"zona","Opciones":["aire","bosque","granero", "pasto", "corral"]}
+                          ]
+                    }]
               };
             return  Json;
           }

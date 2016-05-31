@@ -586,6 +586,10 @@ form div .label-input-assistant{
 	transform: translate(-50%, -20%);
 }
 
+.container-fluid{
+  padding-top: 5px;
+}
+
 #marco_elementos{
 	  margin-bottom: 5px;
 }

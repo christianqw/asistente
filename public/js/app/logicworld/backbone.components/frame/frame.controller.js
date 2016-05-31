@@ -13,11 +13,14 @@ define (
 
         var FrameController = Marionette.Controller.extend({
 
-          initialize: function () {
-              this.jsonBoardConfig = this.generateJson();
-              this.jsonPanelConfig = this.generateJson2();
-
+          initialize: function (options) {
+              this.nameModel = options.nameModel;
+              this.jsonBoardConfig = this.generateJson('js/app/logicworld/modelos/'+this.nameModel+'/board-config.json');
+            //this.jsonBoardConfig = JSON.parse(fs.readFileSync('js/app/logicworld/modelos/granja/board-config.json', 'utf8'));
+              this.jsonPanelConfig = this.generateJson('js/app/logicworld/modelos/'+this.nameModel+'/panel-config.json');
               this.boardModel = new BoardModel(this.jsonBoardConfig.boardModel, {'map' : this.jsonBoardConfig.boardMap});
+
+
 
               console.log("bordModel");
               //console.log(this.boardModel);
@@ -73,21 +76,30 @@ define (
           //-------------
           //emulando JSON
           //-------------
-          generateJson: function (){
-            var Json ={
-              "boardModel" : {"img": "js/app/logicworld/modelos/granja/images/granja.png",
-                              "img_mascara":"js/app/logicworld/modelos/granja/images/mascara.png",
-                              "tipo": "zona"
+          generateJson: function (path){
+            var that = this;
+            this.loadJSON(function(response) {
+              // Parse JSON string into object
+              that.Json = JSON.parse(response);
+              console.log(that.Json);
+            }, path);
 
-              },
-              "boardMap" : {"R63G72B204" : "aire",
-                            "R34G177B76" : "bosque",
-                            "R255G242B0" : "granero",
-                            "R255G174B201" : "pasto",
-                            "R237G28B36": "corral"
+
+            return  this.Json;
+          },
+
+          loadJSON: function (callback, path) {
+
+            var xobj = new XMLHttpRequest();
+            xobj.overrideMimeType("application/json");
+            xobj.open('GET', path, false); // Replace 'my_data' with the path to your file // Replace 'false' for "true" to asicronic method
+            xobj.onreadystatechange = function () {
+              if (xobj.readyState == 4 && xobj.status == "200") {
+                // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+                callback(xobj.responseText);
               }
             };
-            return  Json;
+            xobj.send(null);
           },
 
           generateJson2: function (){

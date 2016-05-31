@@ -1,14 +1,15 @@
 {
-  "boardModel" : {"img": "js/app/modelos/granja/images/granja.png",
-                  "img_mascara":"js/app/modelos/granja/images/mascara.png",
-                  "tipo": "zona"
+  "boardModel" : {"img": "js/app/logicworld/modelos/tableroFiguras/images/tablero.png",
+                  "img_mascara":"js/app/logicworld/modelos/tableroFiguras/images/mascara.png",
+                  "tipo": "tablero"
 
   },
-  "boardMap" : {"R63G72B204" : {"fila": 1 , "col" : 1 },
-					 "R34G177B76" : {"fila": 1 , "col" : 2 },
-					 "R255G242B0" : {"fila": 1 , "col" : 3 },
-					 "R255G174B201" : {"fila": 2, "col" : 1 },
-					 "R237G28B36": {"fila": 2 , "col" : 2 },
-          "R235G28B36": {"fila": 2 , "col" : 3 }
+  "boardMap" : {
+      "R63G72B204" : {"fila": 1 , "col" : 1 },
+			"R34G177B76" : {"fila": 1 , "col" : 2 },
+			"R255G242B0" : {"fila": 1 , "col" : 3 },
+			"R255G174B201" : {"fila": 2, "col" : 1 },
+			"R237G28B36": {"fila": 2 , "col" : 2 },
+      "R235G28B36": {"fila": 2 , "col" : 3 }
   }
 }

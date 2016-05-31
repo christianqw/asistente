@@ -27,7 +27,7 @@
 	  "CantParam":2,
 	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"zona", "ParametroD":1, "AtributoD":"zona"}
 					  ]}
-				],
+				],		
 "Funcion":[
 	{"Rename":"ELMASLEJANO","Class":"ElMasLejano"},
 	{"Rename":"ELMASCERANO","Class":"ElMasCercano"}
