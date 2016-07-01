@@ -8,34 +8,21 @@
 			{"id":"tabs-1","att" : [
 												{"name":"att1", "op":[
 																{"estado":"Chico"},
-																{"estado":"Mediano"}
-																]},
-												{"name":"att2", "op":[
-																{"estado":"Amarillo"},
-																{"estado":"Lila"},
-																{"estado":"Verde"}
+																{"estado":"Mediano"},
+																{"estado":"Grande"}
 																]}
 			]}
 		],
 		"map" : {
-			"tipo1ChicoAmarillo":"tableroFiguras/images/e_a_c.png",
-			"tipo1ChicoLila":"tableroFiguras/images/e_l_c.png",
-			"tipo1ChicoVerde":"tableroFiguras/images/e_v_c.png",
-			"tipo1MedianoAmarillo":"tableroFiguras/images/e_a_m.png",
-			"tipo1MedianoLila":"tableroFiguras/images/e_l_m.png",
-			"tipo1MedianoVerde":"tableroFiguras/images/e_v_m.png",
-			"tipo2ChicoAmarillo":"tableroFiguras/images/c_a_c.png",
-			"tipo2ChicoLila":"tableroFiguras/images/c_l_c.png",
-			"tipo2ChicoVerde":"tableroFiguras/images/c_v_c.png",
-			"tipo2MedianoAmarillo":"tableroFiguras/images/c_a_m.png",
-			"tipo2MedianoLila":"tableroFiguras/images/c_l_m.png",
-			"tipo2MedianoVerde":"tableroFiguras/images/c_v_m.png",
-			"tipo3ChicoAmarillo":"tableroFiguras/images/p_a_c.png",
-			"tipo3ChicoLila":"tableroFiguras/images/p_l_c.png",
-			"tipo3ChicoVerde":"tableroFiguras/images/p_v_c.png",
-			"tipo3MedianoAmarillo":"tableroFiguras/images/p_a_m.png",
-			"tipo3MedianoLila":"tableroFiguras/images/p_l_m.png",
-			"tipo3MedianoVerde":"tableroFiguras/images/p_v_m.png"
+			"tipo1Chico":"tableroFiguras/images/estrellaChico.png",
+			"tipo1Mediano":"tableroFiguras/images/estrellaMediano.png",
+			"tipo1Grande":"tableroFiguras/images/estrellaGrande.png",
+			"tipo2Chico":"tableroFiguras/images/circuloChico.png",
+			"tipo2Mediano":"tableroFiguras/images/circuloMediano.png",
+			"tipo2Grande":"tableroFiguras/images/circuloGrande.png",
+			"tipo3Chico":"tableroFiguras/images/pentagonoChico.png",
+			"tipo3Mediano":"tableroFiguras/images/pentagonoMediano.png",
+			"tipo3Grande":"tableroFiguras/images/pentagonoGrande.png",
 		},
-		"keys" : ["tipo", "att1", "att2"]
+		"keys" : ["tipo", "att1"]
 	}

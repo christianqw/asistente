@@ -1,42 +1,103 @@
 {"Predicado":[
-	{"NombrePred":"Despierto",
+	{"NombrePred":"Chico",
 	  "CantParam":1,
-	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"att2", "ParametroD":0, "AtributoD":"_constante"}
+	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"att1", "ParametroD":0, "AtributoD":"_constante"}
 					  ]},
-	{"NombrePred":"Dormido",
+	{"NombrePred":"Mediano",
 	  "CantParam":1,
-	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"att2", "ParametroD":1, "AtributoD":"_constante"}
+	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"att1", "ParametroD":1, "AtributoD":"_constante"}
 					  ]},
-	{"NombrePred":"EsChancho",
+	{"NombrePred":"Grande",
+	  "CantParam":1,
+	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"att1", "ParametroD":2, "AtributoD":"_constante"}
+					  ]},
+
+	{"NombrePred":"Estrella",
 	  "CantParam":1,
 	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":0, "AtributoD":"_constante"}
 					  ]},
-	{"NombrePred":"EsGallina",
+	{"NombrePred":"Pentagono",
 	  "CantParam":1,
 	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":1, "AtributoD":"_constante"}
 					  ]},
-	{"NombrePred":"EsPato",
+	{"NombrePred":"Cisculo",
 	  "CantParam":1,
 	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":2, "AtributoD":"_constante"}
 					  ]},
-	{"NombrePred":"EsVaca",
-	  "CantParam":1,
-	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":3, "AtributoD":"_constante"}
-					  ]},
-	{"NombrePred":"MismoLugar",
+
+	{"NombrePred":"IzqDe",
 	  "CantParam":2,
-	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"zona", "ParametroD":1, "AtributoD":"zona"}
-					  ]}
-				],		
+	  "Componentes" :[{"Clase":"MENOR", "ParametroI":0, "AtributoI":"col", "ParametroD":1, "AtributoD":"col"}
+					  ]},
+	{"NombrePred":"DerDe",
+	  "CantParam":2,
+	  "Componentes" :[{"Clase":"MAYOR", "ParametroI":0, "AtributoI":"col", "ParametroD":1, "AtributoD":"col"}
+					  ]},
+	{"NombrePred":"ArrivaDe",
+	  "CantParam":2,
+	  "Componentes" :[{"Clase":"MENOR", "ParametroI":0, "AtributoI":"fila", "ParametroD":1, "AtributoD":"fila"}
+					  ]},
+	{"NombrePred":"AbajoDe",
+	  "CantParam":2,
+	  "Componentes" :[{"Clase":"MAYOY", "ParametroI":0, "AtributoI":"fila", "ParametroD":1, "AtributoD":"fila"}
+					  ]},
+
+	{"NombrePred":"MismaFila",
+	  "CantParam":2,
+	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"fila", "ParametroD":1, "AtributoD":"fila"}
+					  ]},
+	{"NombrePred":"MismaColumna",
+	  "CantParam":2,
+	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"col", "ParametroD":1, "AtributoD":"col"}
+					  ]},
+	{"NombrePred":"MismoTamaño",
+	  "CantParam":2,
+	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"att1", "ParametroD":1, "AtributoD":"att1"}
+					  ]},
+	{"NombrePred":"MismaFigura",
+	  "CantParam":2,
+	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":1, "AtributoD":"tipo"}
+					  ]},
+	{"NombrePred":"MasChico",
+	  "CantParam":2,
+	  "Componentes" :[{"Clase":"MENOR", "ParametroI":0, "AtributoI":"att1", "ParametroD":1, "AtributoD":"att1"}
+					  ]},
+	{"NombrePred":"MasGrande",
+	  "CantParam":2,
+	  "Componentes" :[{"Clase":"MAYOY", "ParametroI":0, "AtributoI":"att1", "ParametroD":1, "AtributoD":"att1"}
+					  ]},
+
+	{"NombrePred":"Entre",
+	  "CantParam":3,
+	  "Componentes" :[
+								{"Clase":"MAYOR", "ParametroI":1, "AtributoI":"col", "ParametroD":0, "AtributoD":"col"},
+								{"Clase":"MAYOR", "ParametroI":0, "AtributoI":"col", "ParametroD":2, "AtributoD":"col"},
+								{"Clase":"AND"},
+								{"Clase":"MAYOR", "ParametroI":1, "AtributoI":"fila", "ParametroD":0, "AtributoD":"fila"},
+								{"Clase":"MAYOR", "ParametroI":0, "AtributoI":"fila", "ParametroD":2, "AtributoD":"fila"},
+								{"Clase":"AND"},
+								{"Clase":"OR"},
+
+								{"Clase":"MENOR", "ParametroI":1, "AtributoI":"col", "ParametroD":0, "AtributoD":"col"},
+								{"Clase":"MENOR", "ParametroI":0, "AtributoI":"col", "ParametroD":2, "AtributoD":"col"},
+								{"Clase":"AND"},
+								{"Clase":"MENOR", "ParametroI":1, "AtributoI":"fila", "ParametroD":0, "AtributoD":"fila"},
+								{"Clase":"MENOR", "ParametroI":0, "AtributoI":"fila", "ParametroD":2, "AtributoD":"fila"},
+								{"Clase":"AND"},
+								{"Clase":"OR"},
+
+								{"Clase":"OR"}
+					  ]},
+				],
 "Funcion":[
-	{"Rename":"ELMASLEJANO","Class":"ElMasLejano"},
-	{"Rename":"ELMASCERANO","Class":"ElMasCercano"}
-	],
+
+],
 
 "Elemento":[{"Dominio":"animal",
-			"ListAtributos":[{"Atributo":"tipo","Opciones":["tipo1","tipo2","tipo3", "tipo4"]},
+			"ListAtributos":[
+							{"Atributo":"tipo","Opciones":["tipo1","tipo2","tipo3", "tipo4"]},
 							{"Atributo":"att1","Opciones":["chico","mediano","grande"]},
-							{"Atributo":"att2","Opciones":["despierto","dormido"]},
-							{"Atributo":"zona","Opciones":["bosque","cielo","corral"]}]
+							{"Atributo":"fila","Opciones":[1, 2, 3, 4, 5]},
+							{"Atributo":"col","Opciones":[1, 2, 3, 4, 5, 6]}]
 			}]
 }

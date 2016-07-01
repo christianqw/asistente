@@ -4,7 +4,8 @@
                   "tipo": "zona"
 
   },
-  "boardMap" : {"R63G72B204" : "aire",
+  "boardMap" : {
+           "R63G72B204" : "aire",
 					 "R34G177B76" : "bosque",
 					 "R255G242B0" : "granero",
 					 "R255G174B201" : "pasto",
