@@ -4,9 +4,9 @@ define (
         'underscore',
         'marionette',
         './logicWorld.view',
-        './backbone.components/sentencias/sentencia.controller',
-        './backbone.components/frame/frame.controller',
-        './backbone.components/elementos/elemento.controller'
+        './app.components/sentencias/sentencia.controller',
+        './app.components/frame/frame.controller',
+        './app.components/elementos/elemento.controller'
     ],
     function ($, _, Marionette, LogicWorldView, SentenciaController, FrameController, ElementoController) {
         'use strict';

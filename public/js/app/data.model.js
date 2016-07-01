@@ -13,7 +13,7 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
     var DataModel = Backbone.Model.extend({
       urlRoot: '/dataForm'
 
-      //agregan funciones de validacion. 
+      //agregan funciones de validacion.
 
     });
 

@@ -17,30 +17,92 @@
         <link rel="stylesheet" type="text/css" href="css/asistente-logic-world.min-0.0.1.css">
     </head>
     <body>
+
         <div id="headerRegion" class="">
           <!-- start:Navbar -->
           <nav id="my-nav" class="navbar navbar-default">
             <div class="container-fluid">
               <div class="navbar-header">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                   <img id="img_logo_app" src="img/assets/logoApp.png" class="image" />
 
                 </a>
               </div>
-            </div>
+              </div>
           </nav>
           <!-- end:Navbar -->
         </div>
         <div id="contentRegion" class="">
-            <h3>Mundos</h3><h3>Poronga</h3>
-            <a href="#granja">Mundo 1</a>
-            <a href="#tableroFiguras"> Tablero</a>
-            <h3>Crear Nuevo Mundo</h3>
-            <a href="#comenzando">
-              <button type="button" name="button">Ir al Asistente</button>
-            </a>
+          <div class="my-index-title">
+            <div class="title-banner">
+              <div class="flex-row inner">
+                <div class="text-fliying">
+                  <h1><span>Hacer Lógica!</span></h1>
+                  <p>Con LogicWorld es posible escribir problemas de Lógica de Primer Orden, y validarlos en
+                    las diferentes semanticas.</p>
+                </div>
+                <div class="image-fliying">
+                  <img src="img/slider-general.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="my-index-content">
+            <div class="sub-body-content">
+              <div class="flex-row-2">
+                <div class="image-left">
+                  <img src="img/boy-pc.png" alt="" />
+                </div>
+                <div class="intro">
+                  <h1>Elegí un modelo, crea una instancia del dominio y evalúa la validez de tus sentencias</h1>
+                  <div class="models">
+                    <a class="div-model" href="#granja">
+                      <img src="img/granja-img.png" alt="LogicWorld Granja" />
+                      <div class="fondo-icon-model fondo-color-1" >
+                        <div class="text-name-model text-color1">GRANJA</div>
+                      </div>
 
+                    </a>
+                    <a class="div-model" href="#tableroFiguras">
+                      <img src="img/tablero-figuras-img.png" alt="LogicWorld Figuras" />
+                      <div class="fondo-icon-model fondo-color-2">
+                        <div class="text-name-model text-color2">FIGURAS</div>
+                      </div>
+
+                    </a>
+                    <a class="div-model" href="#autosParalelos">
+                      <img src="img/autos-paralelos-img.png" alt="LogicWorld Autos" />
+                      <div class="fondo-icon-model fondo-color-3">
+                        <div class="text-name-model text-color3">AUTOS</div>
+                      </div>
+
+                    </a>
+                  </div>
+                  <div class="description">
+                    Selecciona alguno de los tres modelos para comenzar a trabajar
+                  </div>
+                  <div class="links">
+                  </div>
+                  </div>
+              </div>
+            </div>
+            <footer id="footer" class="region-footer">
+                <div class="div-footer">
+                  <p>
+                    <strong>
+                      <a href="http://www.exa.unicen.edu.ar/">Facultad de Ciencias Exactas</a>
+                       -
+                      <a href="http://ccomp2.alumnos.exa.unicen.edu.ar/">Ciencias de la Computación II</a>
+                      <span class="separador-h__normal">|</span>
+                       Tandil, Bs. As., Argentina, 2016
+                    </strong>
+                  </p>
+
+                </div>
+
+            </footer>
         </div>
+
         <section class="modal fade" role="modal" id="modalRegion"></section>
         <script type="text/javascript" data-main="js/main" src="vendor/requirejs/require.js"></script>
     </body>
