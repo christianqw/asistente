@@ -77,10 +77,11 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
      //-------------
      capturarAtributos: function(action){
       var _id_atributos = $("#marco_elementos .ui-tabs-active a").attr("href");
+      var dom = $("#marco_elementos .ui-tabs-active").attr("aria-controls");
       var _Json_atributos = $(_id_atributos).serializeArray();
       var tipo = $("#marco_elementos .ui-tabs-active img").attr("id");
-      var data = { "tipo" : tipo };
-      //console.log("   tipo: "+ data.tipo);
+      var data = { "tipo" : tipo, "dominio": dom};
+
       $.each(_Json_atributos, function (i, obj) {
         data[obj.name] = obj.value; //cargar los atributos al data.
       });

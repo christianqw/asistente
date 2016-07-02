@@ -39,7 +39,7 @@
 					  ]},
 	{"NombrePred":"AbajoDe",
 	  "CantParam":2,
-	  "Componentes" :[{"Clase":"MAYOY", "ParametroI":0, "AtributoI":"fila", "ParametroD":1, "AtributoD":"fila"}
+	  "Componentes" :[{"Clase":"MAYOR", "ParametroI":0, "AtributoI":"fila", "ParametroD":1, "AtributoD":"fila"}
 					  ]},
 
 	{"NombrePred":"MismaFila",
@@ -64,7 +64,7 @@
 					  ]},
 	{"NombrePred":"MasGrande",
 	  "CantParam":2,
-	  "Componentes" :[{"Clase":"MAYOY", "ParametroI":0, "AtributoI":"att1", "ParametroD":1, "AtributoD":"att1"}
+	  "Componentes" :[{"Clase":"MAYOR", "ParametroI":0, "AtributoI":"att1", "ParametroD":1, "AtributoD":"att1"}
 					  ]},
 
 	{"NombrePred":"Entre",
@@ -87,17 +87,17 @@
 								{"Clase":"OR"},
 
 								{"Clase":"OR"}
-					  ]},
+					  ]}
 				],
-"Funcion":[
 
-],
+"Funcion":[],
 
-"Elemento":[{"Dominio":"animal",
+"Elemento":[{"Dominio":"figura",
 			"ListAtributos":[
 							{"Atributo":"tipo","Opciones":["tipo1","tipo2","tipo3", "tipo4"]},
 							{"Atributo":"att1","Opciones":["chico","mediano","grande"]},
-							{"Atributo":"fila","Opciones":[1, 2, 3, 4, 5]},
-							{"Atributo":"col","Opciones":[1, 2, 3, 4, 5, 6]}]
+							{"Atributo":"fila","Opciones":["1", "2", "3", "4", "5"]},
+							{"Atributo":"col","Opciones":["1", "2", "3", "4", "5", "6"]}
+						]
 			}]
 }

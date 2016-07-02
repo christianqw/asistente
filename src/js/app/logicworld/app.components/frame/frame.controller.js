@@ -15,9 +15,9 @@ define (
 
           initialize: function (options) {
               this.nameModel = options.nameModel;
-              this.jsonBoardConfig = this.generateJson('js/app/logicworld/modelos/'+this.nameModel+'/board-config.json');
+              this.jsonBoardConfig = this.getJson('js/app/logicworld/modelos/'+this.nameModel+'/board-config.json');
             //this.jsonBoardConfig = JSON.parse(fs.readFileSync('js/app/logicworld/modelos/granja/board-config.json', 'utf8'));
-              this.jsonPanelConfig = this.generateJson('js/app/logicworld/modelos/'+this.nameModel+'/panel-config.json');
+              this.jsonPanelConfig = this.getJson('js/app/logicworld/modelos/'+this.nameModel+'/panel-config.json');
               this.boardModel = new BoardModel(this.jsonBoardConfig.boardModel, {'map' : this.jsonBoardConfig.boardMap});
 
 
@@ -62,9 +62,9 @@ define (
               console.log(element);
           }else if (this.boardModel.get('tipo') === 'tablero'){
               var j = this.boardModel.getFilCol(newData, element.model.get('imgHeight'), element.model.get('imgWidth'));
-              console.log('############## tableroooooo #####################333333');
+              console.log('############## tableroooooo #####################');
               newData.col = j.col;
-              newData.fil = j.fil;
+              newData.fila = j.fila;
               element.editData(newData);
               console.log('<<<<<<<<<<<<<<<<<<<');
               console.log(element);
@@ -74,22 +74,19 @@ define (
           },
 
           //-------------
-          //emulando JSON
+          //get and load JSON
           //-------------
-          generateJson: function (path){
+          getJson: function (path){
             var that = this;
             this.loadJSON(function(response) {
               // Parse JSON string into object
               that.Json = JSON.parse(response);
               console.log(that.Json);
             }, path);
-
-
             return  this.Json;
           },
 
           loadJSON: function (callback, path) {
-
             var xobj = new XMLHttpRequest();
             xobj.overrideMimeType("application/json");
             xobj.open('GET', path, false); // Replace 'my_data' with the path to your file // Replace 'false' for "true" to asicronic method
@@ -100,37 +97,6 @@ define (
               }
             };
             xobj.send(null);
-          },
-
-          generateJson2: function (){
-            var Json ={
-              "elements":[
-                  {"ref":"tabs-1", "id":"tipo1", "img":"granja/images/chancho.png"},
-                  {"ref":"tabs-1", "id":"tipo2", "img":"granja/images/gallina.png"},
-                  {"ref":"tabs-1", "id":"tipo3", "img":"granja/images/pato.png"},
-                  {"ref":"tabs-1", "id":"tipo4", "img":"granja/images/vaca.png"}
-              ],
-              "tabs":[
-                {"id":"tabs-1","att" : [
-                                  {"name":"att1", "op":[
-                                          {"estado":"Despierto"},
-                                          {"estado":"Dormido"}
-                                          ]}
-                ]}
-              ],
-              "map" : {
-                "tipo1Despierto":"granja/images/chancho.png",
-                "tipo2Despierto":"granja/images/gallina.png",
-                "tipo3Despierto":"granja/images/pato.png",
-                "tipo4Despierto":"granja/images/vaca.png",
-                "tipo1Dormido":"granja/images/chanchoDormido.png",
-                "tipo2Dormido":"granja/images/gallinaDormido.png",
-                "tipo3Dormido":"granja/images/patoDormido.png",
-                "tipo4Dormido":"granja/images/vacaDormido.png"
-              },
-              "keys" : ["tipo", "att1"]
-            };
-            return  Json;
           }
 
         });

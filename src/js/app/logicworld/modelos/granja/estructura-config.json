@@ -19,6 +19,26 @@
 	  "CantParam":1,
 	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":3, "AtributoD":"_constante"}
 					  ]},
+	{"NombrePred":"EstaEnElAire",
+		"CantParam":1,
+		"Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"zona", "ParametroD":0, "AtributoD":"_constante"}
+						]},
+	{"NombrePred":"EstaEnElBosque",
+		"CantParam":1,
+		"Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"zona", "ParametroD":1, "AtributoD":"_constante"}
+						]},
+	{"NombrePred":"EstaEnElPasto",
+		"CantParam":1,
+		"Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"zona", "ParametroD":2, "AtributoD":"_constante"}
+						]},
+	{"NombrePred":"EstaEnElGranero",
+		"CantParam":1,
+		"Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"zona", "ParametroD":3, "AtributoD":"_constante"}
+						]},
+	{"NombrePred":"EstaEnElCorral",
+		"CantParam":1,
+		"Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"zona", "ParametroD":4, "AtributoD":"_constante"}
+						]},
 	{"NombrePred":"EsAve",
 	  "CantParam":1,
 	  "Componentes" :[
@@ -49,6 +69,6 @@
 "Elemento":[{"Dominio":"animal",
 			"ListAtributos":[{"Atributo":"tipo","Opciones":["tipo1","tipo2","tipo3", "tipo4"]},
 							{"Atributo":"att1","Opciones":["Despierto","Dormido"]},
-							{"Atributo":"zona","Opciones":["bosque","aire","corral","granero","pasto"]}]
+							{"Atributo":"zona","Opciones":["aire","bosque","pasto","granero","corral"]}]
 			}]
 }

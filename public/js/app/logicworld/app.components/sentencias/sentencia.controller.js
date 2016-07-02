@@ -42,8 +42,8 @@ define (
             //iteramos sobre toda la coleccion, undercode function
             _.each(this.sentenciaCollection.models,
               function(item){ //funcion que se le aplica a cada elemento
-                console.log('PODRIA MODULARIZARLO Y LLAMAR A UNA funcion PROPIA DEL MODELO -_-');
-                item.save({valor : ''});
+                //console.log('PODRIA MODULARIZARLO Y LLAMAR A UNA funcion PROPIA DEL MODELO ');
+                item.save({valor : '', estado : "my-icon-none", mensaje:""});
               }, this);
           },
 
@@ -65,6 +65,25 @@ define (
 
           getCollection: function() {
             return this.sentenciaCollection;
+          },
+
+          respuestaVerificada: function(respuestas){
+          console.log("DEntro del controller de Sentencias");
+
+          var aux_s;
+          var aux_model;
+
+          for (var i in  respuestas) {
+            aux_s = respuestas[i];
+            console.log("respuesta buscando: " + aux_s.nombre);
+            aux_model = this.sentenciaCollection.where({ nombre: aux_s.nombre});
+
+            console.log("modelo encontrado :" + JSON.stringify(aux_model));
+
+            aux_model[0].save({estado:aux_s.estado, mensaje:aux_s.mensaje});
+            console.log("modelo actualizado :" + JSON.stringify(aux_model));
+
+          }
           },
 
           //---------------------

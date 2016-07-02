@@ -76,8 +76,11 @@ function ($, Backbone, LocalStorage, Marionette, _, JQUI, JST) {
       },
 
       getFilCol: function (data, realHeight, realWidth){
+        console.log("################# DENTRO DE get FIL COL #################");
         var claveColor = this.getClaveColor(data, realHeight, realWidth); //get color de canvas real:real
         console.log("clave Color : " + claveColor);//get value mapa en color
+        console.log("VALOR EN EL MAPA:");
+        console.log(this.var_map[claveColor]);
         return this.var_map[claveColor];
       },
 

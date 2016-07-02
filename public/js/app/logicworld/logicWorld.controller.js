@@ -20,6 +20,7 @@ define (
 
               console.log("INIC LOGICWORLD Controller - ");
               console.log(this.nameModel);
+
           },
 
           show: function () {
@@ -42,6 +43,9 @@ define (
               //console.log('elemento Controller');
               this.elementoController = new ElementoController();
               this.elementoController.show();
+
+              //cargamos la configuracionde la semantica para la verificacion
+              this.JsonConfig = this.getJsonConfigEstructura('js/app/logicworld/modelos/'+this.nameModel+'/estructura-config.json');
 
               //eventos que escucha el controlador de su vista asociada...
               this.listenTo(this.logicWorldView, 'logic.addSentencia', this.addNewSentencia);
@@ -74,6 +78,7 @@ define (
               lista.push(eAux);
             });
             console.log('lista >>>>>');
+            console.log(lista);
             return lista;
           },
 
@@ -81,22 +86,14 @@ define (
             console.log('XXXXXXXXXXXXXXXXXXXX..........XXXXXXXXXXXXXXXXXXXXXX');
             var listaSentencias = this.sentenciaController.getCollection().toJSON();
             var listaElementos = this.generateListaElementos(this.elementoController.getCollection().toJSON());
-            var JsonConfig = JSON.stringify(this.getJsonConfigEstructura());
             var nameModel = this.nameModel;
-            /*var Json = [{'nombre':'n1', 'x' : 10, 'y':10, 'atributos':{
-                                                                            'topo':'tipo1', 'size' : '20'}
-                                        },
-                                        {'nombre':'n2', 'x' : 20, 'y':20, 'atributos':{
-                                                                            'topo':'tipo2', 'ancho' : '25', 'otro':'otro-valor'}
-                                        }
-                                    ];*/
-            //console.log('collection-Elementos.toJSON(): ',   this.elementoController.getCollection().toJSON());
-            //console.log('JSON.stringify(collection.toJSON()): ', JSON.stringify(this.elementoController.getCollection().toJSON()));
-            //console.log('-------------------');
+            var Json = JSON.stringify(this.JsonConfig);
+            var that = this;
+
             console.log('nameModel: ',   nameModel);
             console.log('collection-Elementos.toJSON(): ',   JSON.stringify( listaElementos));
             console.log('JSON.stringify(collection.toJSON()): ', JSON.stringify(listaSentencias));
-            console.log('JSON.stringify(collection.toJSON()): ', JsonConfig);
+            console.log('JSON.stringify(collection.toJSON()): ', this.JsonConfig);
             console.log('XXXXXXXXXXXXXXXXXXXX..........XXXXXXXXXXXXXXXXXXXXXX');
             //beggin AJAX
             $.ajax({
@@ -106,73 +103,43 @@ define (
                     "nameIdFrame" : nameModel,
                     "listaElementos": listaElementos,
                     "listaSentencias": listaSentencias,
-                    "jsonConfig" : JsonConfig
+                    "jsonConfig" : Json
                   }),
-            url: "http://localhost:8080/actionVerificar",
-            //success: function(data){
-            //		that.trigger("event_formulario:insert_Char", "dentro del Ajax");
-            //}
+                  url: "http://localhost:8080/actionVerificar",
             }).then(function(data, status, jqxhr) {
-            //	var lsentenciasR = data["listaSentencias"];
-            console.log('status: ' + status);
-            console.log(data);
-            //that.trigger("event_formulario:respuestaResivida",  data["listaSentencias"]);
 
-            //for (var i in  s) {
-            //  $('#respuesta').append('Elemenento ' + i +' : ' + s[i] + '<br/>');
-            //}
+            console.log('status: ' + status);console.log(data);
+            that.sentenciaController.respuestaVerificada(data);
+
             });
-            //end AJA
+            //end AJAX
           },
 
-          //-------------
-          //emulando JSON
-          //-------------
-          getJsonConfigEstructura: function (){
-            var Json ={
-              "Predicado":[
-                {"NombrePred":"Despierto",
-                  "CantParam":1,
-                  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"att2", "ParametroD":0, "AtributoD":"_constante"}
-                          ]},
-                {"NombrePred":"Dormido",
-                  "CantParam":1,
-                  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"att2", "ParametroD":1, "AtributoD":"_constante"}
-                          ]},
-                {"NombrePred":"EsChancho",
-                  "CantParam":1,
-                  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":0, "AtributoD":"_constante"}
-                          ]},
-                {"NombrePred":"EsGallina",
-                  "CantParam":1,
-                  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":1, "AtributoD":"_constante"}
-                          ]},
-                {"NombrePred":"EsPato",
-                  "CantParam":1,
-                  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":2, "AtributoD":"_constante"}
-                          ]},
-                {"NombrePred":"EsVaca",
-                  "CantParam":1,
-                  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":3, "AtributoD":"_constante"}
-                          ]},
-                {"NombrePred":"MismoLugar",
-                  "CantParam":2,
-                  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"zona", "ParametroD":1, "AtributoD":"zona"}
-                          ]}
-                      ],
-                "Funcion":[
-                {"Rename":"ELMASLEJANO","Class":"ElMasLejano"},
-                {"Rename":"ELMASCERANO","Class":"ElMasCercano"}
-                ],
 
-                "Elemento":[{"Dominio":"animal",
-                    "ListAtributos":[{"Atributo":"tipo","Opciones":["tipo1","tipo2","tipo3", "tipo4"]},
-                          {"Atributo":"att1","Opciones":["Despierto","Dormido"]},
-                          {"Atributo":"zona","Opciones":["aire","bosque","granero", "pasto", "corral"]}
-                          ]
-                    }]
-              };
-            return  Json;
+          //-------------
+          //get and load JSON
+          //-------------
+          getJsonConfigEstructura: function (path){
+            var that = this;
+            this.loadJSON(function(response) {
+              // Parse JSON string into object
+              that.Json = JSON.parse(response);
+              console.log(that.Json);
+            }, path);
+            return  this.Json;
+          },
+
+          loadJSON: function (callback, path) {
+            var xobj = new XMLHttpRequest();
+            xobj.overrideMimeType("application/json");
+            xobj.open('GET', path, false); // Replace 'my_data' with the path to your file // Replace 'false' for "true" to asicronic method
+            xobj.onreadystatechange = function () {
+              if (xobj.readyState == 4 && xobj.status == "200") {
+                // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+                callback(xobj.responseText);
+              }
+            };
+            xobj.send(null);
           }
 
         });

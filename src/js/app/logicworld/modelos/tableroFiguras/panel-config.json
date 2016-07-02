@@ -1,11 +1,11 @@
 {
 		"elements":[
-				{"ref":"tabs-1", "id":"tipo1", "img":"tableroFiguras/images/icon_estre.png"},
-				{"ref":"tabs-1", "id":"tipo2", "img":"tableroFiguras/images/icon_circ.png"},
-				{"ref":"tabs-1", "id":"tipo3", "img":"tableroFiguras/images/icon_penta.png"}
+				{"ref":"figura", "id":"tipo1", "img":"tableroFiguras/images/icon_estre.png"},
+				{"ref":"figura", "id":"tipo2", "img":"tableroFiguras/images/icon_circ.png"},
+				{"ref":"figura", "id":"tipo3", "img":"tableroFiguras/images/icon_penta.png"}
 		],
 		"tabs":[
-			{"id":"tabs-1","att" : [
+			{"id":"figura","att" : [
 												{"name":"att1", "op":[
 																{"estado":"Chico"},
 																{"estado":"Mediano"},
@@ -22,7 +22,7 @@
 			"tipo2Grande":"tableroFiguras/images/circuloGrande.png",
 			"tipo3Chico":"tableroFiguras/images/pentagonoChico.png",
 			"tipo3Mediano":"tableroFiguras/images/pentagonoMediano.png",
-			"tipo3Grande":"tableroFiguras/images/pentagonoGrande.png",
+			"tipo3Grande":"tableroFiguras/images/pentagonoGrande.png"
 		},
 		"keys" : ["tipo", "att1"]
 	}
