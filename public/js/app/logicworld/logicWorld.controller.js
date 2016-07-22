@@ -6,9 +6,10 @@ define (
         './logicWorld.view',
         './app.components/sentencias/sentencia.controller',
         './app.components/frame/frame.controller',
-        './app.components/elementos/elemento.controller'
+        './app.components/elementos/elemento.controller',
+        './app.components/modal/modal.view',
     ],
-    function ($, _, Marionette, LogicWorldView, SentenciaController, FrameController, ElementoController) {
+    function ($, _, Marionette, LogicWorldView, SentenciaController, FrameController, ElementoController, ModalView) {
         'use strict';
 
         var LogicWorldController = Marionette.Controller.extend({
@@ -53,6 +54,7 @@ define (
               this.listenTo(this.logicWorldView, 'logic.insertChar', this.insertChar);
               this.listenTo(this.logicWorldView, 'logic.verificar', this.verificar);
 
+
           },
 
           addNewSentencia: function(){
@@ -61,6 +63,22 @@ define (
 
           clearAllInputs: function(){
             this.sentenciaController.clearAllInputs();
+
+            this.viewModal = new ModalView({'jsonConfig' : this.JsonConfig});
+
+            console.log("the view:");
+            console.log(this.viewModal);
+
+            //view.render();
+            //console.log("postRender");
+            //var $modalEl = $("#modalRegion");
+            //console.log("getHTML elemnt");
+            //$modalEl.html(view.el);
+            //$modalEl.dialog();
+            //console.log(".modal");
+            //$modalEl.modal();
+
+            App.modal.show(this.viewModal);
           },
 
           insertChar: function(char){

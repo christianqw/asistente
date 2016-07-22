@@ -20,25 +20,29 @@
 	  "CantParam":1,
 	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":1, "AtributoD":"_constante"}
 					  ]},
-	{"NombrePred":"Cisculo",
+	{"NombrePred":"Circulo",
 	  "CantParam":1,
 	  "Componentes" :[{"Clase":"IGUAL", "ParametroI":0, "AtributoI":"tipo", "ParametroD":2, "AtributoD":"_constante"}
 					  ]},
 
 	{"NombrePred":"IzqDe",
 	  "CantParam":2,
+		"Ayuda": "<x> está a la izquierda de <y>",
 	  "Componentes" :[{"Clase":"MENOR", "ParametroI":0, "AtributoI":"col", "ParametroD":1, "AtributoD":"col"}
 					  ]},
 	{"NombrePred":"DerDe",
 	  "CantParam":2,
+		"Ayuda": "<x> está a la derecha de <y>",
 	  "Componentes" :[{"Clase":"MAYOR", "ParametroI":0, "AtributoI":"col", "ParametroD":1, "AtributoD":"col"}
 					  ]},
-	{"NombrePred":"ArrivaDe",
+	{"NombrePred":"ArribaDe",
 	  "CantParam":2,
+		"Ayuda": "El elemento <x> está mas arriba que <y>",
 	  "Componentes" :[{"Clase":"MENOR", "ParametroI":0, "AtributoI":"fila", "ParametroD":1, "AtributoD":"fila"}
 					  ]},
 	{"NombrePred":"AbajoDe",
 	  "CantParam":2,
+		"Ayuda": "El elemento <x> está mas abajo que <y>",
 	  "Componentes" :[{"Clase":"MAYOR", "ParametroI":0, "AtributoI":"fila", "ParametroD":1, "AtributoD":"fila"}
 					  ]},
 
@@ -69,6 +73,7 @@
 
 	{"NombrePred":"Entre",
 	  "CantParam":3,
+		"Ayuda": "El elemento <x> está entre <y> y <z>",
 	  "Componentes" :[
 								{"Clase":"MAYOR", "ParametroI":1, "AtributoI":"col", "ParametroD":0, "AtributoD":"col"},
 								{"Clase":"MAYOR", "ParametroI":0, "AtributoI":"col", "ParametroD":2, "AtributoD":"col"},

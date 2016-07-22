@@ -30,7 +30,7 @@ require.config({
             exports: 'Handlebars'
         },
 
-        'boostrap': {
+        'bootstrap': {
             deps: ['jquery'],
             exports: '$.fn.popover'
         }

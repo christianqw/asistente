@@ -11,7 +11,7 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
     'use strict';
 
 
-    var BoardView = Marionette.ItemView.extend({
+    var PanelView = Marionette.ItemView.extend({
 
       className:'panel',
       template:'panel.template.hbs',
@@ -127,6 +127,6 @@ function ($, Backbone, Marionette, _, JQUI, JST) {
 
     });
 
-    return BoardView;
+    return PanelView;
 
 });

@@ -4,11 +4,12 @@ define(
     'underscore',
     'backbone',
     'marionette',
+    'bootstrap',
     'handlebars',
     'templateregistry',
     './router'
 ],
-function (jquery, _, Backbone, Marionette, Handlebars, JST, Router) {
+function (jquery, _, Backbone, Marionette, Bootstrap, Handlebars, JST, Router) {
     'use strict';
 
     var Application = new Marionette.Application();
@@ -64,7 +65,8 @@ function (jquery, _, Backbone, Marionette, Handlebars, JST, Router) {
             panelRegion:'#marco_elementos',
             piecesRegion : '#lista_elementos',
             sentencesRegion: '#panel_sentencias',
-            modalRegifon: ModalRegion
+            modal: ModalRegion
+
         });
     });
 
